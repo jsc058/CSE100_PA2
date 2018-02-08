@@ -6,7 +6,7 @@
 
 #ifndef AUTOCOMPLETE_HPP
 #define AUTOCOMPLETE_HPP
-
+#include "MWTrie.hpp"
 #include <vector>
 #include <string>
 using namespace std;
@@ -29,7 +29,10 @@ public:
   In addition to alphabetic characters, words may contain digits, single apostrophes, dashes etc.
   */
   Autocomplete(const vector<string> words) {
-    //TODO
+    MWTrie trie = new MWTrie();
+    for (unsigned int i = 0; i < words.length(); i++) {
+      trie.insert(words[i]);
+    }
   }
 
   /* Return up to 10 of the most frequent completions
@@ -49,7 +52,35 @@ public:
    * Return: the vector of completions
    */
   vector<string> predictCompletions(const string prefix) {
-    return vector<string>(); //TODO
+    vector<string> predictedW[10];
+    TrieNode * to_compare = root;
+    int edge_val = 0;
+    int counter = 0;
+
+    for (unsigned int i = 0; i < prefix.length(); i++) {
+      edge_val = (prefix[i]) - 'a';
+      if (edge_val == (-32)) {
+        edge_val = 26
+      }
+
+      // If already existing letter, follow to next node
+      if (to_compare->children[edge_val] != nullptr) {
+        to_compare = to_compare->children[edge_val];
+      }
+    }
+    // At this point, to_compare holds the last node of the prefix
+    // TODO
+    if (to_compare->word) {
+      predictedW[counter] = to_compare->wordstring;
+      counter++;
+      if (counter == 10) {
+        break;
+      }
+    }
+
+
+    
+    return predictedW; 
   }
 
   /* Destructor */
