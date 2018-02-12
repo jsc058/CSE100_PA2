@@ -1,21 +1,17 @@
-#ifndef TerTrie
-#define TerTrie
+#ifndef TerTrie_HPP
+#define TerTrie_HPP
 #include "TrieNode.hpp"
 #include <string>
 using namespace std;
 
 class TerTrie {
 
-  protected:
+  public:
 
     TrieNode * root;
-
     unsigned int isize;
-
     unsigned int iheight;
-
-public:
-
+    
     TerTrie(): root(0), isize(0), iheight(0) { }
 
     /* Insert Method */
@@ -47,7 +43,7 @@ public:
           to_compare = to_compare->left;
 
           // If item greather than current node, go right
-        } else if (to_compare->letter < word[index] < ) {
+        } else if (to_compare->letter < word[index]) {
           to_compare = to_compare->right;
 
           // If item is equal to the current node, go middle
@@ -91,7 +87,7 @@ public:
           to_compare = to_compare->left;
 
           // If item greather than current node, go right
-        } else if (to_compare->letter < word[index] < ) {
+        } else if (to_compare->letter < word[index]) {
           to_compare = to_compare->right;
 
           // If item is equal to the current node, go middle

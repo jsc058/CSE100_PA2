@@ -18,7 +18,8 @@ using namespace std;
 class Autocomplete
 {
 public:
-
+  
+  TerTrie* trie;
   /*
   Create an Autocomplete object.
   This object should be trained on the words vector
@@ -29,9 +30,9 @@ public:
   In addition to alphabetic characters, words may contain digits, single apostrophes, dashes etc.
   */
   Autocomplete(const vector<string> words) {
-    TerTrie trie = new TerTrie();
-    for (unsigned int i = 0; i < words.length(); i++) {
-      trie.insert(words[i]);
+    trie = new TerTrie();
+    for (unsigned int i = 0; i < words.size(); i++) {
+      *(trie).insert(words[i]);
     }
   }
 
@@ -53,14 +54,15 @@ public:
    */
   vector<string> predictCompletions(const string prefix) {
     vector<string> predictedW[10];
-    TrieNode * to_compare = root;
+    TrieNode * to_compare = trie->root;
     int edge_val = 0;
     int counter = 0;
 
+/*
     for (unsigned int i = 0; i < prefix.length(); i++) {
       edge_val = (prefix[i]) - 'a';
       if (edge_val == (-32)) {
-        edge_val = 26
+        edge_val = 26;
       }
 
       // If already existing letter, follow to next node
@@ -85,7 +87,7 @@ public:
     for (int i = 0; i < 10; i++) {
       predictedW[i] = sorted[i]->wordstring;
     }
-
+*/
     return predictedW;
   }
 
@@ -100,6 +102,7 @@ public:
    * by sorting through a vector of all possible completions.
    *
    */
+/*
   vector<TrieNode> compareSort(vector<TrieNode> allPossible) {
     TrieNode * top;
     vector<TrieNode> sorted[10];
@@ -119,7 +122,7 @@ public:
 
     return sorted;
   }
-
+*/
 private:
 
   //you may add your own code here
