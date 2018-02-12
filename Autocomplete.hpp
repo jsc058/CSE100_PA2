@@ -6,7 +6,7 @@
 
 #ifndef AUTOCOMPLETE_HPP
 #define AUTOCOMPLETE_HPP
-#include "MWTrie.hpp"
+#include "TerTrie.hpp"
 #include <vector>
 #include <string>
 using namespace std;
@@ -133,7 +133,7 @@ private:
         deleteAll(node->children[i]);
         delete node->children[i];
       }
-    } 
+    }
   }
 
 };
