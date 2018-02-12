@@ -18,8 +18,28 @@ int main() {
   v.push_back("tape");
   v.push_back("ace");
 
-  Autocomplete wordsTest(v);
+  //Autocomplete wordsTest(v);
 
+  TerTrie trie;
+  bool found;
+  trie.insert("apple");
+  found = trie.find("apple");
+  if (found) {
+    cout << "Found" << endl;
+  } else {
+    cout << "Not found" << endl;
+  }
+
+  found = trie.find("app");
+  if (found) {
+    cout << "Found" << endl;
+  } else {
+    cout << "Not found" << endl;
+  }
+  
+  return -1;
+
+/*
   vector<string> returned;
   vector<string> correct;
   correct.push_back("ace");
@@ -48,4 +68,5 @@ int main() {
     cout << "Failed Test 2" << endl;
     return -1;
   }
+*/
 }

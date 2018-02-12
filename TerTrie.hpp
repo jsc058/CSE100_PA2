@@ -28,6 +28,7 @@ class TerTrie {
         int ind = 1;
         while (word[ind] != '\0') {
           to_compare->middle = new TrieNode(word[ind]);
+          to_compare = to_compare->middle;
           ind++;
         }
         isize++;
