@@ -23,6 +23,7 @@ public:
       TrieNode * to_compare = root; // start at root to traverse down
       int edge_val = 0;
       string current;
+      int index = 0;  // index to loop through word
 
       // If no nodes exist already, insert new node as the root.
       if (root == nullptr) {
@@ -39,29 +40,39 @@ public:
       }
 
       // If root exists, search for correct position through comparisons
-      while (to_compare != nullptr) {
+      while (word[index] != '\0') {
+
         // If item less than current node, go left
-        if (to_compare->data < item) {
+        if (word[index] < to_compare->data) {
           to_compare = to_compare->left;
 
           // If item greather than current node, go right
-        } else if (item < to_compare->data) {
+        } else if (to_compare->data < word[index] < ) {
           to_compare = to_compare->right;
 
           // If item is equal to the current node, go middle
-        } else {
-          // Check if it's the last letter of the word
-          if (word[i+1] == '\0') {
-            // Check if the node contains a word label
-            if (to_compare->word == true) {
-              to_compare->frequency++;
-              return true;
-            } else {
-            }
-          } else {
-            to_compare = to_compare->middle;
+        } else if (to_compare->data == word[index]) {
+          index++;
+          to_compare = to_compare->middle;
+
+          // If hits a null node, simply create a chain of middle nodes
+        } else if (to_compare == nullptr) {
+          to_compare = new TrieNode(word[index]);
+          index++;
+          while (word[index] != '\0') {
+            to_compare->middle = new TrieNode(word[index]);
+            index++;
           }
+          to_compare->word = true;
+          to_compare->frequency++;
+          return true;
         }
+      }
+
+      // Check if it's the last letter of the word
+      if (word[index] == '\0' && to_compare->word == true) {
+        to_compare->frequency++;
+        return true;
       }
 
       return false;
@@ -70,31 +81,31 @@ public:
 
     bool find(string word) {
       TrieNode * to_compare = root; // start at root to traverse down
-      int edge_val = 0;
+      int index = 0; // index for the word
 
-      // Loop throught the word to find while traversing down
-      for (unsigned int i = 0; i < word.length(); i++) {
+      // Loop throught the tree to find word while traversing down
+      while (to_compare != nullptr || word[index] != '\0') {
+
         // If item less than current node, go left
-        if (to_compare->data < word[i]) {
+        if (word[index] < to_compare->data) {
           to_compare = to_compare->left;
 
           // If item greather than current node, go right
-        } else if (word[i] < to_compare->data) {
+        } else if (to_compare->data < word[index] < ) {
           to_compare = to_compare->right;
 
           // If item is equal to the current node, go middle
         } else {
-          // Check if it's the last letter of the word
-          if (word[i+1] == '\0') {
-            // Check if the node contains a word label
-            if (to_compare->word == true) {
-              return true;
-            } else {
-              return false;
-            }
-          } else {
+            index++;
             to_compare = to_compare->middle;
-          }
+        }
+      }
+
+      // Check if it's the last letter of the word
+      if (word[index] == '\0') {
+        // Check if the node contains a word label
+        if (to_compare->word == true) {
+          return true;
         }
       }
 
