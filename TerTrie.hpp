@@ -10,7 +10,6 @@ class TerTrie {
 
     TrieNode * root;
     unsigned int isize;
-    unsigned int iheight;
 
     TerTrie(): root(0), isize(0), iheight(0) { }
 
