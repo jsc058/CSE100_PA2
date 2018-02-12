@@ -29,13 +29,8 @@ protected:
       wordstring = '';
     }
     */
-<<<<<<< HEAD
-    TrieNode::TrieNode() {
-      letter;
-=======
     TrieNode(char & letter) {
       letter = letter;
->>>>>>> 6dc2b6c6433504791013fbf600393a1bfaf0257d
       left = right = middle = 0;
       wordLabel = false;
       frequency = 0;
