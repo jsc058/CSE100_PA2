@@ -16,7 +16,7 @@ class TerTrie {
 
 public:
 
-    TerTrie::TerTrie(): root(0), isize(0), iheight(0) { }
+    TerTrie(): root(0), isize(0), iheight(0) { }
 
     /* Insert Method */
     bool insert(string word) {

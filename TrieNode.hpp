@@ -7,15 +7,6 @@ using namespace std;
 
 class TrieNode {
   //private:
-protected:
-  
-  TrieNode* left;
-  TrieNode* right;
-  TrieNode* middle;
-  char letter;   // the const Data in this node.
-  bool wordLabel;
-  unsigned int frequency;
-  string wordstring;
 
   public:
     /* Constructor */
@@ -35,7 +26,14 @@ protected:
       wordLabel = false;
       frequency = 0;
     }
-
+    
+    TrieNode* left;
+    TrieNode* right;
+    TrieNode* middle;
+    char letter;   // the const Data in this node.
+    bool wordLabel;
+    unsigned int frequency;
+    string wordstring;
   //public:
 
 
