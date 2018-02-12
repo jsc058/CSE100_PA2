@@ -17,6 +17,8 @@ test_Auto: test_Auto.o
 	g++ -o test_Auto test_Auto.o
 main: main.o
 	g++ -o main main.o
+Autocomplete: Autocomplete.o
+	g++ -o Autocomplete Autocomplete.o
 
 main.o: main.cpp Autocomplete.hpp TerTrie.hpp TrieNode.hpp
 test_Auto.o: TrieNode.hpp TerTrie.hpp Autocomplete.hpp
