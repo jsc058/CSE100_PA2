@@ -28,9 +28,9 @@ class TrieNode {
 
   //public:
 
-    TrieNode* left;
-    TrieNode* right;
-    TrieNode* middle;
+    TrieNode<Data>* left;
+    TrieNode<Data>* right;
+    TrieNode<Data>* middle;
     Data const data;   // the const Data in this node.
     bool word;
     unisnged int frequency;

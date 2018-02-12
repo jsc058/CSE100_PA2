@@ -29,7 +29,7 @@ public:
   In addition to alphabetic characters, words may contain digits, single apostrophes, dashes etc.
   */
   Autocomplete(const vector<string> words) {
-    MWTrie trie = new MWTrie();
+    TerTrie trie = new TerTrie();
     for (unsigned int i = 0; i < words.length(); i++) {
       trie.insert(words[i]);
     }
@@ -128,12 +128,20 @@ private:
       return;
     }
 
-    for (int i = 0; i < 27; i++) {
-      if (node->children[i] != nullptr) {
-        deleteAll(node->children[i]);
-        delete node->children[i];
-      }
+    if (node->left != nullptr) {
+      deleteAll(node->left);
     }
+
+    if (node->right != nullptr) {
+      deleteAll(node->right);
+    }
+
+    if (node->middle != nullptr){
+      deleteAll(node->middle)
+    }
+
+    delete node;
+
   }
 
 };
