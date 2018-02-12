@@ -19,7 +19,7 @@ class TrieNode {
       wordstring = '';
     }
     */
-    TrieNode() {
+    TrieNode::TrieNode() {
       letter;
       left = right = middle = 0;
       wordLabel = false;
