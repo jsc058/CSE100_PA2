@@ -43,15 +43,15 @@ public:
       while (word[index] != '\0') {
 
         // If item less than current node, go left
-        if (word[index] < to_compare->data) {
+        if (word[index] < to_compare->letter) {
           to_compare = to_compare->left;
 
           // If item greather than current node, go right
-        } else if (to_compare->data < word[index] < ) {
+        } else if (to_compare->letter < word[index] < ) {
           to_compare = to_compare->right;
 
           // If item is equal to the current node, go middle
-        } else if (to_compare->data == word[index]) {
+        } else if (to_compare->letter == word[index]) {
           index++;
           to_compare = to_compare->middle;
 
@@ -63,14 +63,14 @@ public:
             to_compare->middle = new TrieNode(word[index]);
             index++;
           }
-          to_compare->word = true;
+          to_compare->wordLabel = true;
           to_compare->frequency++;
           return true;
         }
       }
 
       // Check if it's the last letter of the word
-      if (word[index] == '\0' && to_compare->word == true) {
+      if (word[index] == '\0' && to_compare->wordLabel == true) {
         to_compare->frequency++;
         return true;
       }
@@ -87,11 +87,11 @@ public:
       while (to_compare != nullptr || word[index] != '\0') {
 
         // If item less than current node, go left
-        if (word[index] < to_compare->data) {
+        if (word[index] < to_compare->letter) {
           to_compare = to_compare->left;
 
           // If item greather than current node, go right
-        } else if (to_compare->data < word[index] < ) {
+        } else if (to_compare->letter < word[index] < ) {
           to_compare = to_compare->right;
 
           // If item is equal to the current node, go middle
@@ -104,7 +104,7 @@ public:
       // Check if it's the last letter of the word
       if (word[index] == '\0') {
         // Check if the node contains a word label
-        if (to_compare->word == true) {
+        if (to_compare->wordLabel == true) {
           return true;
         }
       }

@@ -19,20 +19,21 @@ class TrieNode {
       wordstring = '';
     }
     */
-    TrieNode(const Data & d) : data(d) {
+    TrieNode() {
+      letter;
       left = right = middle = 0;
-      word = false;
+      wordLabel = false;
       frequency = 0;
       wordstring;
     }
 
   //public:
 
-    TrieNode<Data>* left;
-    TrieNode<Data>* right;
-    TrieNode<Data>* middle;
-    Data const data;   // the const Data in this node.
-    bool word;
+    TrieNode* left;
+    TrieNode* right;
+    TrieNode* middle;
+    char letter;   // the const Data in this node.
+    bool wordLabel;
     unisnged int frequency;
     string wordstring;
 /*
