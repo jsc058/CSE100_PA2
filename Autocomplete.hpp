@@ -137,7 +137,7 @@ private:
     }
 
     if (node->middle != nullptr){
-      deleteAll(node->middle)
+      deleteAll(node->middle);
     }
 
     delete node;
