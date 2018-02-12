@@ -82,7 +82,7 @@ class TerTrie {
       int index = 0; // index for the word
 
       // Loop throught the tree to find word while traversing down
-      while (to_compare != nullptr || word[index] != '\0') {
+      while (to_compare != nullptr) {
 
         // If item less than current node, go left
         if (word[index] < to_compare->letter) {
@@ -95,17 +95,19 @@ class TerTrie {
           // If item is equal to the current node, go middle
         } else {
             index++;
+
+            // Check if it's the last letter of the word
+      	    if (word[index] == '\0') {
+              // Check if the node contains a word label
+              if (to_compare->wordLabel == true) {
+                return true;
+              }
+            }
+
             to_compare = to_compare->middle;
         }
       }
 
-      // Check if it's the last letter of the word
-      if (word[index] == '\0') {
-        // Check if the node contains a word label
-        if (to_compare->wordLabel == true) {
-          return true;
-        }
-      }
 
       return false;
     }

@@ -1,4 +1,5 @@
 #include "Autocomplete.hpp"
+#include "AutocompleteUtils.hpp"
 #include <iostream>
 #include <algorithm>
 #include <vector>
@@ -8,17 +9,19 @@
 using namespace std;
 
 int main() {
-  vector<string> v;
-  v.push_back("apple");
-  v.push_back("ape");
-  v.push_back("applet");
-  v.push_back("cape");
-  v.push_back("tall");
-  v.push_back("tap");
-  v.push_back("tape");
-  v.push_back("ace");
+/*
+  vector<string>* v = new vector<string>(10);
+  v->push_back(string("apple"));
+  v->push_back(string("ape"));
+  v->push_back(string("applet"));
 
-  //Autocomplete wordsTest(v);
+  v->push_back("cape");
+  v->push_back("tall");
+  v->push_back("tap");
+  v->push_back("tape");
+  v->push_back("ace");
+*/
+  Autocomplete wordsTest(AutocompleteUtils::getWords("TestCases/SingleWords.txt"));
 
   TerTrie trie;
   bool found;
