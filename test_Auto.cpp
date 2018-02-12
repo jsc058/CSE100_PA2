@@ -18,7 +18,7 @@ int main() {
   v.push_back("tape");
   v.push_back("ace");
 
-  //Autocomplete wordsTest(v);
+  Autocomplete wordsTest(v);
 
   TerTrie trie;
   bool found;
