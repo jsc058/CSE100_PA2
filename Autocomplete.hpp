@@ -123,6 +123,18 @@ public:
 private:
 
   //you may add your own code here
+  static void deleteAll(TrieNode * node) {
+    if (node == nullptr) {
+      return;
+    }
+
+    for (int i = 0; i < 27; i++) {
+      if (node->children[i] != nullptr) {
+        deleteAll(node->children[i]);
+        delete node->children[i];
+      }
+    } 
+  }
 
 };
 
