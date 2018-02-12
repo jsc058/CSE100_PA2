@@ -19,7 +19,7 @@ class Autocomplete
 {
 public:
 
-  /* 
+  /*
   Create an Autocomplete object.
   This object should be trained on the words vector
   That is - the predictCompletions() function below should pull autocomplete
@@ -69,7 +69,9 @@ public:
       }
     }
     // At this point, to_compare holds the last node of the prefix
-    // TODO
+
+    // Need to store all possible completions in a vector
+
     if (to_compare->word) {
       predictedW[counter] = to_compare->wordstring;
       counter++;
@@ -78,9 +80,13 @@ public:
       }
     }
 
+    // pull top 10 strings from top 10 nodes
+    vecor<TrieNode> * sorted = compareSort()
+    for (int i = 0; i < 10; i++) {
+      predictedW[i] = sorted[i]->wordstring;
+    }
 
-    
-    return predictedW; 
+    return predictedW;
   }
 
   /* Destructor */
@@ -88,7 +94,31 @@ public:
     //TODO
   }
 
-  //You may add your own code here
+
+  /*
+   * This function returns the top ten most frequent string completions
+   * by sorting through a vector of all possible completions.
+   *
+   */
+  vector<TrieNode> compareSort(vector<TrieNode> allPossible) {
+    TrieNode * top;
+    vector<TrieNode> sorted[10];
+
+    for (int i = 0; i < allPossible.length()-1; i++) {
+      for (int j = 1; j < allPossible.length(); j++){
+        // If next element is more frequent than current, store the next element
+        if (allPossible[i] < allPossible [j]) {
+          top = allPossible[j];
+        }
+        else {
+          top = allPossible[i];
+        }
+      }
+      sorted[i] = top;
+    }
+
+    return sorted;
+  }
 
 private:
 
