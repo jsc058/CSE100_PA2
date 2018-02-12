@@ -11,7 +11,7 @@ class TerTrie {
     TrieNode * root;
     unsigned int isize;
     unsigned int iheight;
-    
+
     TerTrie(): root(0), isize(0), iheight(0) { }
 
     /* Insert Method */
@@ -33,6 +33,8 @@ class TerTrie {
         }
         isize++;
         iheight++;
+        to_compare->wordLabel = true;
+        to_compare->frequency++;
         return true;
       }
 
