@@ -19,7 +19,7 @@ class Autocomplete
 {
 public:
   
-  TerTrie* trie;
+  TerTrie * trie;
   /*
   Create an Autocomplete object.
   This object should be trained on the words vector
@@ -32,7 +32,7 @@ public:
   Autocomplete(const vector<string> words) {
     trie = new TerTrie();
     for (unsigned int i = 0; i < words.size(); i++) {
-      *(trie).insert(words[i]);
+      trie->insert(words[i]);
     }
   }
 
@@ -53,7 +53,7 @@ public:
    * Return: the vector of completions
    */
   vector<string> predictCompletions(const string prefix) {
-    vector<string> predictedW[10];
+    vector<string> predictedW(10);
     TrieNode * to_compare = trie->root;
     int edge_val = 0;
     int counter = 0;
