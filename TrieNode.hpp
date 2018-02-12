@@ -1,5 +1,5 @@
-#ifndef TrieNode
-#define TrieNode
+#ifndef TrieNode_HPP
+#define TrieNode_HPP
 #include <iostream>
 #include <iomanip>
 #include <string>
@@ -7,6 +7,14 @@ using namespace std;
 
 class TrieNode {
   //private:
+  TrieNode* left;
+  TrieNode* right;
+  TrieNode* middle;
+  char letter;   // the const Data in this node.
+  bool wordLabel;
+  unisnged int frequency;
+  string wordstring;
+  
   public:
     /* Constructor */
     /*
@@ -29,13 +37,7 @@ class TrieNode {
 
   //public:
 
-    TrieNode* left;
-    TrieNode* right;
-    TrieNode* middle;
-    char letter;   // the const Data in this node.
-    bool wordLabel;
-    unisnged int frequency;
-    string wordstring;
+
 /*
     TrieNode * children[27];
     */
