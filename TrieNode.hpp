@@ -1,11 +1,13 @@
-#ifndef TrieNode.hpp
-#define TrieNode.hpp
+#ifndef TrieNode
+#define TrieNode
+#include <iostream>
+#include <iomanip>
 #include <string>
 using namespace std;
 
 class TrieNode {
-  private:
-
+  //private:
+  public:
     /* Constructor */
     /*
     TrieNode() {
@@ -21,14 +23,14 @@ class TrieNode {
       left = right = middle = 0;
       word = false;
       frequency = 0;
-      wordstring = '';
+      wordstring;
     }
 
-  public:
+  //public:
 
-    BSTNode<Data>* left;
-    BSTNode<Data>* right;
-    BSTNode<Data>* middle;
+    TrieNode* left;
+    TrieNode* right;
+    TrieNode* middle;
     Data const data;   // the const Data in this node.
     bool word;
     unisnged int frequency;
