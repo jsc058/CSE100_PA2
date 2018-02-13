@@ -11,12 +11,20 @@
 #include <string>
 #include <stack>
 #include <utility>
+#include <algorithm>
 using namespace std;
 
 /**
  *  You may implement this class as either a mulit-way trie
  *  or a ternary search trie.
  */
+
+// Function to sort the vector elements by second element of pair
+bool sortbysec(const pair<string,unsigned int> &a,
+              const pair<string,unsigned int> &b) {
+  return (a.second < b.second);
+}
+
 class Autocomplete
 {
 public:
@@ -37,6 +45,7 @@ public:
       trie->insert(words[i]);
     }
   }
+
 
   /* Return up to 10 of the most frequent completions
    * of the prefix, such that the completions are words in the dictionary.
@@ -119,17 +128,17 @@ private:
       return;
     }
 
-    if (node->left != nullptr) {
+    //if (node->left != nullptr) {
       deleteAll(node->left);
-    }
+    //}
 
-    if (node->right != nullptr) {
+    //if (node->right != nullptr) {
       deleteAll(node->right);
-    }
+    //}
 
-    if (node->middle != nullptr){
+    //if (node->middle != nullptr){
       deleteAll(node->middle);
-    }
+    //}
 
     delete node;
 
@@ -157,7 +166,8 @@ private:
         completions.push(*(curr->middle));
       }
 
-      curr = &(completions).pop();
+      curr = &(completions.top()); 
+      completions.pop();
       currentWord.append(&(curr->letter));
 
       if (curr->wordLabel) {
@@ -168,12 +178,6 @@ private:
     return possibles;
   }
 
-  // Driver function to sort the vector elements
-  // by second element of pairs
-  bool sortbysec(const pair<string,unsigned int> &a,
-              const pair<string,unsigned int> &b) {
-    return (a.second < b.second);
-  }
 
 };
 

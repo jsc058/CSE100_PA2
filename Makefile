@@ -20,7 +20,7 @@ main: main.o
 Autocomplete: Autocomplete.o
 	g++ -o Autocomplete Autocomplete.o
 
-main.o: main.cpp Autocomplete.hpp TerTrie.hpp TrieNode.hpp
+main.o: main.cpp Autocomplete.hpp TerTrie.hpp TrieNode.hpp AutocompleteUtils.hpp
 test_Auto.o: TrieNode.hpp TerTrie.hpp Autocomplete.hpp
 Autocomplete.o: Autocomplete.hpp TerTrie.hpp TrieNode.hpp
 

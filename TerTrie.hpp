@@ -16,7 +16,9 @@ class TerTrie {
     /* Insert Method */
     bool insert(string word) {
       TrieNode * to_compare = root; // start at root to traverse down
+      TrieNode * prevNode;	// previous node to keep track
       string current;
+      int parent = 0;	// 0 = from left, 1 = from right, 2 = from middle
       int index = 0;  // index to loop through word
 
       // If no nodes exist already, insert new node as the root.
@@ -37,37 +39,55 @@ class TerTrie {
 
       // If root exists, search for correct position through comparisons
       while (word[index] != '\0') {
+	// If node is null, insert here
+	if (to_compare == nullptr) {
+          to_compare = new TrieNode(word[index]);
+	  
+	  // Connect node to tree
+	  if (parent == 0) {
+	    prevNode->left = to_compare;
+	  } else if (parent == 1) {
+	    prevNode->right = to_compare;
+          } else {
+            prevNode->middle = to_compare;
+          }
 
-        // If item less than current node, go left
-        if (word[index] < to_compare->letter) {
+	  // Add the rest of the word in the middle
+          index++;
+          while (word[index] != '\0') {
+            to_compare->middle = new TrieNode(word[index]);
+            to_compare = to_compare->middle;
+            index++;
+          }
+
+          to_compare->wordLabel = true;
+          to_compare->frequency++;
+          return true;
+
+          // If item less than current node, go left
+        } else if (word[index] < to_compare->letter) {
+          prevNode = to_compare;
+	  parent = 0;
           to_compare = to_compare->left;
 
           // If item greather than current node, go right
         } else if (to_compare->letter < word[index]) {
+          prevNode = to_compare;
+	  parent = 1;
           to_compare = to_compare->right;
 
           // If item is equal to the current node, go middle
         } else if (to_compare->letter == word[index]) {
           index++;
+          prevNode = to_compare;
+	  parent = 2;
           to_compare = to_compare->middle;
-
-          // If hits a null node, simply create a chain of middle nodes
-        } else if (to_compare == nullptr) {
-          to_compare = new TrieNode(word[index]);
-          index++;
-          while (word[index] != '\0') {
-            to_compare->middle = new TrieNode(word[index]);
-            index++;
-          }
-          to_compare->wordLabel = true;
-          to_compare->frequency++;
-          return true;
-        }
+	}
       }
 
       // Check if it's the last letter of the word
-      if (word[index] == '\0' && to_compare->wordLabel == true) {
-        to_compare->frequency++;
+      if (word[index] == '\0' && prevNode->wordLabel == true) {
+        prevNode->frequency++;
         return true;
       }
 
