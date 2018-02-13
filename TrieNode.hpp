@@ -20,13 +20,6 @@ class TrieNode {
       wordstring = '';
     }
     */
-    TrieNode(char & letter) {
-      letter = letter;
-      left = right = middle = 0;
-      wordLabel = false;
-      frequency = 0;
-    }
-    
     TrieNode* left;
     TrieNode* right;
     TrieNode* middle;
@@ -34,6 +27,14 @@ class TrieNode {
     bool wordLabel;
     unsigned int frequency;
     string wordstring;
+
+    TrieNode(const char & character) {
+      letter = character;
+      left = right = middle = 0;
+      wordLabel = false;
+      frequency = 0;
+    }
+    
   //public:
 
 

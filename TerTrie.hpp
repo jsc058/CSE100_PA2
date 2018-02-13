@@ -1,20 +1,15 @@
-#ifndef TerTrie
-#define TerTrie
+#ifndef TerTrie_HPP
+#define TerTrie_HPP
 #include "TrieNode.hpp"
 #include <string>
 using namespace std;
 
 class TerTrie {
 
-  protected:
+  public:
 
     TrieNode * root;
-
     unsigned int isize;
-
-    unsigned int iheight;
-
-public:
 
     TerTrie(): root(0), isize(0), iheight(0) { }
 
@@ -32,10 +27,13 @@ public:
         int ind = 1;
         while (word[ind] != '\0') {
           to_compare->middle = new TrieNode(word[ind]);
+          to_compare = to_compare->middle;
           ind++;
         }
         isize++;
         iheight++;
+        to_compare->wordLabel = true;
+        to_compare->frequency++;
         return true;
       }
 
@@ -47,7 +45,7 @@ public:
           to_compare = to_compare->left;
 
           // If item greather than current node, go right
-        } else if (to_compare->letter < word[index] < ) {
+        } else if (to_compare->letter < word[index]) {
           to_compare = to_compare->right;
 
           // If item is equal to the current node, go middle
@@ -84,30 +82,32 @@ public:
       int index = 0; // index for the word
 
       // Loop throught the tree to find word while traversing down
-      while (to_compare != nullptr || word[index] != '\0') {
+      while (to_compare != nullptr) {
 
         // If item less than current node, go left
         if (word[index] < to_compare->letter) {
           to_compare = to_compare->left;
 
           // If item greather than current node, go right
-        } else if (to_compare->letter < word[index] < ) {
+        } else if (to_compare->letter < word[index]) {
           to_compare = to_compare->right;
 
           // If item is equal to the current node, go middle
         } else {
             index++;
+
+            // Check if it's the last letter of the word
+      	    if (word[index] == '\0') {
+              // Check if the node contains a word label
+              if (to_compare->wordLabel == true) {
+                return true;
+              }
+            }
+
             to_compare = to_compare->middle;
         }
       }
 
-      // Check if it's the last letter of the word
-      if (word[index] == '\0') {
-        // Check if the node contains a word label
-        if (to_compare->wordLabel == true) {
-          return true;
-        }
-      }
 
       return false;
     }

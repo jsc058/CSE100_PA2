@@ -9,6 +9,7 @@
 #include "TerTrie.hpp"
 #include <vector>
 #include <string>
+#include <pair>
 using namespace std;
 
 /**
@@ -19,6 +20,7 @@ class Autocomplete
 {
 public:
 
+  TerTrie * trie;
   /*
   Create an Autocomplete object.
   This object should be trained on the words vector
@@ -29,9 +31,9 @@ public:
   In addition to alphabetic characters, words may contain digits, single apostrophes, dashes etc.
   */
   Autocomplete(const vector<string> words) {
-    TerTrie trie = new TerTrie(words[0]);
-    for (unsigned int i = 1; i < size.length(); i++) {
-      trie.insert(words[i]);
+    trie = new TerTrie();
+    for (unsigned int i = 0; i < words.size(); i++) {
+      trie->insert(words[i]);
     }
   }
 
@@ -52,38 +54,50 @@ public:
    * Return: the vector of completions
    */
   vector<string> predictCompletions(const string prefix) {
-    vector<string> predictedW[10];
-    TrieNode * to_compare = root;
-    int edge_val = 0;
-    int counter = 0;
+    vector<string> predictedW(10);
 
-    for (unsigned int i = 0; i < prefix.length(); i++) {
-      edge_val = (prefix[i]) - 'a';
-      if (edge_val == (-32)) {
-        edge_val = 26
-      }
+    // Finding the prefix
+    TrieNode * to_compare = trie->root; // start at root to traverse down
+    int index = 0; // index for the word
+    vector<pair<string,unsigned int>> all_words;
+    string current;
 
-      // If already existing letter, follow to next node
-      if (to_compare->children[edge_val] != nullptr) {
-        to_compare = to_compare->children[edge_val];
+    // Loop through the tree to find prefix
+    while (to_compare != nullptr) {
+      // If item less than current node, go left
+      if (prefix[index] < to_compare->letter) {
+        to_compare = to_compare->left;
+        // If item greather than current node, go right
+      } else if (to_compare->letter < prefix[index]) {
+        to_compare = to_compare->right;
+        // If item is equal to the current node, go middle
+      } else {
+          index++;
+          // Check if it's the last letter of the word
+          if (prefix[index] == '\0') {
+            break;
+          }
+          to_compare = to_compare->middle;
       }
     }
-    // At this point, to_compare holds the last node of the prefix
-
-    // Need to store all possible completions in a vector
-
-    if (to_compare->word) {
-      predictedW[counter] = to_compare->wordstring;
-      counter++;
-      if (counter == 10) {
-        break;
-      }
+    // If prefix does not exist
+    if (to_compare == nullptr) {
+      return predictedW;
     }
 
-    // pull top 10 strings from top 10 nodes
-    vecor<TrieNode> * sorted = compareSort()
+    // Start DFS from the last letter of the prefix
+    all_words = dfs(to_compare);
+
+    // Sort vector by frequency
+    sort(all_words.begin(), all_words.end(), sortbysec);
+
+    // Sort vector alphabetically
+    sort(all_words.begin(), all_words.end());
+
+    // Input the top 10 words to return
     for (int i = 0; i < 10; i++) {
-      predictedW[i] = sorted[i]->wordstring;
+      current = all_words[i].first;
+      predictedW.push_back(current);
     }
 
     return predictedW;
@@ -91,34 +105,10 @@ public:
 
   /* Destructor */
   ~Autocomplete() {
-    //
+    deleteAll(trie->root);
   }
 
 
-  /*
-   * This function returns the top ten most frequent string completions
-   * by sorting through a vector of all possible completions.
-   *
-   */
-  vector<TrieNode> compareSort(vector<TrieNode> allPossible) {
-    TrieNode * top;
-    vector<TrieNode> sorted[10];
-
-    for (int i = 0; i < allPossible.length()-1; i++) {
-      for (int j = 1; j < allPossible.length(); j++){
-        // If next element is more frequent than current, store the next element
-        if (allPossible[i] < allPossible [j]) {
-          top = allPossible[j];
-        }
-        else {
-          top = allPossible[i];
-        }
-      }
-      sorted[i] = top;
-    }
-
-    return sorted;
-  }
 
 private:
 
@@ -142,6 +132,46 @@ private:
 
     delete node;
 
+  }
+
+  // DFS helper function
+  // TODO Need to pair node and string to return
+  vector<pair> dfs(TrieNode& start) {
+    stack<TrieNode> completions;
+    string currentWord;
+    vector<pair<string,unsigned int>> possibles;
+    TrieNode * curr;
+
+    completions.push(start);
+
+    while (completions.size() != 0) {
+      // Push all children first
+      if (curr->middle->left != nullptr) {
+        completions.push(curr->left);
+      }
+      if (curr->middle->right != nullptr) {
+        completions.push(curr->right);
+      }
+      if (curr->middle != nullptr) {
+        completions.push(curr->middle);
+      }
+
+      curr = completions.pop();
+      currentWord.append(curr->letter);
+
+      if (curr->wordLabel) {
+        possibles.push_back(make_pair(currentWord,curr->frequency));
+        currrentWord = null;
+      }
+    }
+    return possibles;
+  }
+
+  // Driver function to sort the vector elements
+  // by second element of pairs
+  bool sortbysec(const pair<int,int> &a,
+              const pair<int,int> &b) {
+    return (a.second < b.second);
   }
 
 };
