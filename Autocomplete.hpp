@@ -157,13 +157,13 @@ private:
     while (completions.size() != 0) {
       // Push all children first
       if (curr->middle->left != nullptr) {
-        completions.push(*(curr->left));
+        completions.push(*(curr->middle->left));
       }
       if (curr->middle->right != nullptr) {
-        completions.push(*(curr->right));
+        completions.push(*(curr->middle->right));
       }
       if (curr->middle != nullptr) {
-        completions.push(*(curr->middle));
+        completions.push(*(curr->middle->middle));
       }
 
       curr = &(completions.top()); 
