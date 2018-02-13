@@ -9,6 +9,7 @@
 #include "TerTrie.hpp"
 #include <vector>
 #include <string>
+#include <stack>
 #include <utility>
 using namespace std;
 
@@ -86,7 +87,7 @@ public:
     }
 
     // Start DFS from the last letter of the prefix
-    all_words = dfs(to_compare);
+    all_words = dfs(*to_compare);
 
     // Sort vector by frequency
     sort(all_words.begin(), all_words.end(), sortbysec);
@@ -136,11 +137,11 @@ private:
 
   // DFS helper function
   // TODO Need to pair node and string to return
-  vector<pair> dfs(TrieNode& start) {
+  vector<pair<string,unsigned int>> dfs(TrieNode& start) {
     stack<TrieNode> completions;
     string currentWord;
     vector<pair<string,unsigned int>> possibles;
-    TrieNode * curr;
+    TrieNode * curr = start;
 
     completions.push(start);
 
@@ -161,7 +162,7 @@ private:
 
       if (curr->wordLabel) {
         possibles.push_back(make_pair(currentWord,curr->frequency));
-        currrentWord = null;
+        currentWord.clear();
       }
     }
     return possibles;
