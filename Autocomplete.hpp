@@ -83,26 +83,7 @@ public:
     }
 
     // Start DFS from the last letter of the prefix
-    stack<TrieNode> completions;
-    TrieNode * curr;
 
-    completions.push(to_compare);
-    if (to_compare->middle != nullptr) {
-      completions.push(to_compare->middle)
-    }
-
-    while (completions.size() != 0) {
-      curr = completions.pop();
-      if (curr->left != nullptr) {
-        completions.push(curr->left);
-      }
-      if (curr->right != nullptr) {
-        completions.push(curr->right);
-      }
-      if (curr->middle != nullptr) {
-        completions.push(curr->middle);
-      }
-    }
 
 
     return predictedW;
@@ -137,6 +118,38 @@ private:
 
     delete node;
 
+  }
+
+  // DFS helper function
+  // TODO Need to pair node and string to return
+  vector<TrieNode>,string dfs(TrieNode& start) {
+    stack<TrieNode> completions;
+    string currentWord;
+    vector<TrieNode> possibles;
+    TrieNode * curr;
+
+    completions.push(start);
+
+    while (completions.size() != 0) {
+      // Push all children first
+      if (curr->middle->left != nullptr) {
+        completions.push(curr->left);
+      }
+      if (curr->middle->right != nullptr) {
+        completions.push(curr->right);
+      }
+      if (curr->middle != nullptr) {
+        completions.push(curr->middle);
+      }
+
+      curr = completions.pop();
+      currentWord.append(curr->letter);
+
+      if (curr->wordLabel) {
+        possibles.push_back(curr);
+        currrentWord = null;
+      }
+    }
   }
 
 };
