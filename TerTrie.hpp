@@ -11,12 +11,11 @@ class TerTrie {
     TrieNode * root;
     unsigned int isize;
 
-    TerTrie(): root(0), isize(0), iheight(0) { }
+    TerTrie(): root(0), isize(0) { }
 
     /* Insert Method */
     bool insert(string word) {
       TrieNode * to_compare = root; // start at root to traverse down
-      int edge_val = 0;
       string current;
       int index = 0;  // index to loop through word
 

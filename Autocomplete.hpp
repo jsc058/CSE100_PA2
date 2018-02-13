@@ -9,7 +9,8 @@
 #include "TerTrie.hpp"
 #include <vector>
 #include <string>
-#include <pair>
+#include <stack>
+#include <utility>
 using namespace std;
 
 /**
@@ -136,7 +137,7 @@ private:
 
   // DFS helper function
   // TODO Need to pair node and string to return
-  vector<pair> dfs(TrieNode& start) {
+  vector<pair<string,unsigned int>> dfs(TrieNode& start) {
     stack<TrieNode> completions;
     string currentWord;
     vector<pair<string,unsigned int>> possibles;
