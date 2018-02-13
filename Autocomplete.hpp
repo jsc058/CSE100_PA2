@@ -141,24 +141,24 @@ private:
     stack<TrieNode> completions;
     string currentWord;
     vector<pair<string,unsigned int>> possibles;
-    TrieNode * curr = start;
+    TrieNode * curr = &start;
 
     completions.push(start);
 
     while (completions.size() != 0) {
       // Push all children first
       if (curr->middle->left != nullptr) {
-        completions.push(curr->left);
+        completions.push(*(curr->left));
       }
       if (curr->middle->right != nullptr) {
-        completions.push(curr->right);
+        completions.push(*(curr->right));
       }
       if (curr->middle != nullptr) {
-        completions.push(curr->middle);
+        completions.push(*(curr->middle));
       }
 
-      curr = completions.pop();
-      currentWord.append(curr->letter);
+      curr = &(completions).pop();
+      currentWord.append(&(curr->letter));
 
       if (curr->wordLabel) {
         possibles.push_back(make_pair(currentWord,curr->frequency));
@@ -170,8 +170,8 @@ private:
 
   // Driver function to sort the vector elements
   // by second element of pairs
-  bool sortbysec(const pair<int,int> &a,
-              const pair<int,int> &b) {
+  bool sortbysec(const pair<string,unsigned int> &a,
+              const pair<string,unsigned int> &b) {
     return (a.second < b.second);
   }
 
