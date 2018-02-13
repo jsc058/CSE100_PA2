@@ -9,7 +9,7 @@
 #include "TerTrie.hpp"
 #include <vector>
 #include <string>
-#include <pair>
+#include <utility>
 using namespace std;
 
 /**
