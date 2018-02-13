@@ -29,8 +29,8 @@ public:
   In addition to alphabetic characters, words may contain digits, single apostrophes, dashes etc.
   */
   Autocomplete(const vector<string> words) {
-    TerTrie trie = new TerTrie();
-    for (unsigned int i = 0; i < words.length(); i++) {
+    TerTrie trie = new TerTrie(words[0]);
+    for (unsigned int i = 1; i < size.length(); i++) {
       trie.insert(words[i]);
     }
   }
@@ -91,7 +91,7 @@ public:
 
   /* Destructor */
   ~Autocomplete() {
-    //TODO
+    //
   }
 
 
