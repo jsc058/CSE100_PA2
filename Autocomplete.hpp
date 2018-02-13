@@ -18,7 +18,7 @@ using namespace std;
 class Autocomplete
 {
 public:
-  
+
   TerTrie * trie;
   /*
   Create an Autocomplete object.
@@ -54,40 +54,57 @@ public:
    */
   vector<string> predictCompletions(const string prefix) {
     vector<string> predictedW(10);
-    TrieNode * to_compare = trie->root;
-    int edge_val = 0;
-    int counter = 0;
 
-/*
-    for (unsigned int i = 0; i < prefix.length(); i++) {
-      edge_val = (prefix[i]) - 'a';
-      if (edge_val == (-32)) {
-        edge_val = 26;
-      }
+    // Finding the prefix
+    TrieNode * to_compare = trie->root; // start at root to traverse down
+    int index = 0; // index for the word
 
-      // If already existing letter, follow to next node
-      if (to_compare->children[edge_val] != nullptr) {
-        to_compare = to_compare->children[edge_val];
-      }
-    }
-    // At this point, to_compare holds the last node of the prefix
-
-    // Need to store all possible completions in a vector
-
-    if (to_compare->word) {
-      predictedW[counter] = to_compare->wordstring;
-      counter++;
-      if (counter == 10) {
-        break;
+    // Loop through the tree to find prefix
+    while (to_compare != nullptr) {
+      // If item less than current node, go left
+      if (prefix[index] < to_compare->letter) {
+        to_compare = to_compare->left;
+        // If item greather than current node, go right
+      } else if (to_compare->letter < prefix[index]) {
+        to_compare = to_compare->right;
+        // If item is equal to the current node, go middle
+      } else {
+          index++;
+          // Check if it's the last letter of the word
+          if (prefix[index] == '\0') {
+            break;
+          }
+          to_compare = to_compare->middle;
       }
     }
-
-    // pull top 10 strings from top 10 nodes
-    vecor<TrieNode> * sorted = compareSort()
-    for (int i = 0; i < 10; i++) {
-      predictedW[i] = sorted[i]->wordstring;
+    // If prefix does not exist
+    if (to_compare == nullptr) {
+      return nullptr;
     }
-*/
+
+    // Start DFS from the last letter of the prefix
+    stack<TrieNode> completions;
+    TrieNode * curr;
+
+    completions.push(to_compare);
+    if (to_compare->middle != nullptr) {
+      completions.push(to_compare->middle)
+    }
+
+    while (completions.size() != 0) {
+      curr = completions.pop();
+      if (curr->left != nullptr) {
+        completions.push(curr->left);
+      }
+      if (curr->right != nullptr) {
+        completions.push(curr->right);
+      }
+      if (curr->middle != nullptr) {
+        completions.push(curr->middle);
+      }
+    }
+
+
     return predictedW;
   }
 
@@ -97,32 +114,7 @@ public:
   }
 
 
-  /*
-   * This function returns the top ten most frequent string completions
-   * by sorting through a vector of all possible completions.
-   *
-   */
-/*
-  vector<TrieNode> compareSort(vector<TrieNode> allPossible) {
-    TrieNode * top;
-    vector<TrieNode> sorted[10];
 
-    for (int i = 0; i < allPossible.length()-1; i++) {
-      for (int j = 1; j < allPossible.length(); j++){
-        // If next element is more frequent than current, store the next element
-        if (allPossible[i] < allPossible [j]) {
-          top = allPossible[j];
-        }
-        else {
-          top = allPossible[i];
-        }
-      }
-      sorted[i] = top;
-    }
-
-    return sorted;
-  }
-*/
 private:
 
   //you may add your own code here
