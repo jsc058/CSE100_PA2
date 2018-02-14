@@ -127,6 +127,7 @@ public:
   /* Destructor */
   ~Autocomplete() {
     deleteAll(trie->root);
+    delete trie;
   }
 
 

@@ -17,8 +17,7 @@ class MWTrie {
 public:
 
     MWTrie(): root(0), isize(0), iheight(0) { }
-
-    /* Insert Method */
+/*
     bool insert(string word) {
       TrieNode * to_compare = root;
       int edge_val = 0;
@@ -87,7 +86,7 @@ public:
       return false;
 
     }
-
+*/
 };
 
 #endif
