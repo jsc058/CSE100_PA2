@@ -68,7 +68,7 @@ int main() {
   }
 
   // Test 2
-  vector<string> correct2;
+  vector<string> correct2(10);
   correct.push_back("ape");
   correct.push_back("apple");
   correct.push_back("applet");
@@ -79,6 +79,19 @@ int main() {
     cout << "Failed Test 2" << endl;
     return -1;
   }
+
+  // Test 3
+  vector<string> correct3(10);
+  returned = wordsTest.predictCompletions("ball");
+  if (returned == correct) {
+    cout << "Passed Test 3" << endl;
+  } else {
+    cout << "Failed Test 3" << endl;
+    return -1;
+  }
+
+  // Test 4
   
+
   return -1;
 }

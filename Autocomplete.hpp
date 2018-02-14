@@ -22,7 +22,7 @@ using namespace std;
 // Function to sort the vector elements by second element of pair
 bool sortbysec(const pair<string,unsigned int> &a,
               const pair<string,unsigned int> &b) {
-  return (a.second < b.second);
+  return (a.second > b.second);
 }
 
 class Autocomplete
@@ -148,7 +148,7 @@ private:
   // TODO Need to pair node and string to return
   vector<pair<string,unsigned int>> dfs(TrieNode& start) {
     stack<TrieNode> completions;
-    string currentWord;
+    string currentWord = start->letter;
     vector<pair<string,unsigned int>> possibles;
     TrieNode * curr = &start;
 
@@ -166,17 +166,72 @@ private:
         completions.push(*(curr->middle->middle));
       }
 
-      curr = &(completions.top()); 
+      curr = &(completions.top());
       completions.pop();
       currentWord.append(&(curr->letter));
 
       if (curr->wordLabel) {
         possibles.push_back(make_pair(currentWord,curr->frequency));
         currentWord.clear();
+        currentWord = start->letter;
       }
     }
     return possibles;
   }
+/*
+
+  vector<pair<string,unsigned int>> inorderTraversal(TrieNode& start, string word) {
+    stack<char> completions;
+    string currentWord = word;
+    vector<pair<string,unsigned int>> possibles;
+    TrieNode * curr = &start;
+
+    completions.push(start->letter);
+
+    //while (completions.size() != 0) {
+      // Push all children first
+      if (curr->middle->left != nullptr) {
+        currentWord = currentWord.append(&(curr->middle->left->letter));
+        if (!curr->middle->left->wordLabel) {
+          possibles = inorderTraversal(*(curr->middle->left),currentWord);
+          //currentWord = word;
+        } else {
+          possibles.push_back(make_pair(currentWord,curr->frequency));
+          return possibles;
+        }
+        //currentWord = word;
+      }
+
+    //  if (curr->middle->right != nullptr) {
+      //  completions.push(*(curr->middle->right));
+      //}
+
+      if (curr->middle != nullptr) {
+        currentWord = currentWord.append(&(curr->middle->letter));
+        // Check for word label
+        if (!curr->middle->wordLabel) {
+          possibles = inorderTraversal(*(curr->middle),currentWord);
+          currentWord = word;
+        } else {
+          possibles.push_back(make_pair(currentWord,curr->frequency));
+          return possibles;
+        }
+      }
+
+
+      //curr = &(completions.top());
+      //completions.pop();
+      //currentWord.append(&(curr->letter));
+
+      //if (curr->wordLabel) {
+        //possibles.push_back(make_pair(currentWord,curr->frequency));
+        //currentWord.clear();
+        //currentWord = start->letter;
+      //}
+    //}
+    return possibles;
+  }
+*/
 
 
 };
