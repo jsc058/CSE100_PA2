@@ -7,7 +7,7 @@ using namespace std;
 class MWTrie {
 
   protected:
-  
+
     TrieNode * root;
 
     unsigned int isize;
@@ -37,7 +37,7 @@ public:
         }
         // If new letter, create new node to point to 
         else {
-          TrieNode * new_letter = new TrieNode();
+          //TrieNode * new_letter = new TrieNode();
           to_compare->children[edge_val] = new_letter;
           current = current + (char)edge_val;
           to_compare = new_letter;
