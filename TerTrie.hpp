@@ -21,7 +21,7 @@ class TerTrie {
       int parent = 0;	// 0 = from left, 1 = from right, 2 = from middle
       int index = 0;  // index to loop through word
 
-	size_t found = word.find("am");
+	size_t found = word.find("any");
         if (found != -1) {
           parent = 5;
         }
@@ -98,9 +98,9 @@ class TerTrie {
         // Check if all nodes exist, but have to add wordLabel
       } else if (word[index] == '\0' && prevNode->wordLabel == false) {
         prevNode->wordLabel = true;
+        prevNode->frequency++;
         return true;
       }
-
       return false;
     }
 
