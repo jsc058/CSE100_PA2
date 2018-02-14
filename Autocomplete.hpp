@@ -172,7 +172,7 @@ private:
       currWord = prefix;
       curr = &completions.top();
       completions.pop();
-      currWord = currWord.append(&curr->letter);
+      currWord.append(&curr->letter);
 
       // Explore the left and right possible words
       if (curr->left != nullptr || curr->right != nullptr) {
@@ -181,6 +181,7 @@ private:
 
       // Explore additions to current word
       if (curr->middle != nullptr) {
+
         possibles.insert( possibles.end(), search(*curr, currWord).begin(), search(*curr, prefix).end() );
       }
 
