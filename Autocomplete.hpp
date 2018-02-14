@@ -94,15 +94,14 @@ public:
     if (to_compare == nullptr) {
       return predictedW;
     }
+    cout << "Prefix found." << endl;
 
     // Start DFS from the last letter of the prefix
-    all_words = dfs(*to_compare);
+    all_words = search(*to_compare, prefix);
 
-    // Sort vector by frequency
-    sort(all_words.begin(), all_words.end(), sortbysec);
-
-    // Sort vector alphabetically
+    // Sort vector alphabetically and then by frequency
     sort(all_words.begin(), all_words.end());
+    sort(all_words.begin(), all_words.end(), sortbysec);
 
     // Input the top 10 words to return
     for (int i = 0; i < 10; i++) {
@@ -145,37 +144,53 @@ private:
   }
 
   // DFS helper function
-  // TODO Need to pair node and string to return
-  vector<pair<string,unsigned int>> dfs(TrieNode& start) {
-    stack<TrieNode> completions;
-    string currentWord = start->letter;
+  // start: last letter of the prefix
+  vector<pair<string,unsigned int>> search(TrieNode& start, const string prefix) {
     vector<pair<string,unsigned int>> possibles;
-    TrieNode * curr = &start;
+    stack<TrieNode> completions;
+    string currWord;
+    TrieNode * curr = start.middle;
 
-    completions.push(start);
-
-    while (completions.size() != 0) {
-      // Push all children first
-      if (curr->middle->left != nullptr) {
-        completions.push(*(curr->middle->left));
-      }
-      if (curr->middle->right != nullptr) {
-        completions.push(*(curr->middle->right));
-      }
-      if (curr->middle != nullptr) {
-        completions.push(*(curr->middle->middle));
-      }
-
-      curr = &(completions.top());
-      completions.pop();
-      currentWord.append(&(curr->letter));
-
-      if (curr->wordLabel) {
-        possibles.push_back(make_pair(currentWord,curr->frequency));
-        currentWord.clear();
-        currentWord = start->letter;
-      }
+    // If prefix is a word, add to possibles
+    if (start.wordLabel) {
+      possibles.push_back(make_pair(prefix, start.frequency));
     }
+
+    // Add all children of the prefix end to the stack
+    if (curr != nullptr) {
+      completions.push(*curr);
+    }
+    if (curr->right != nullptr) {
+      completions.push(*curr->right);
+    }
+    if (curr->left != nullptr) {
+      completions.push(*curr->left);
+    }
+
+    // Pop from stack to find all completions
+    while (completions.size() != 0) {
+      currWord = prefix;
+      curr = &completions.top();
+      completions.pop();
+      currWord = currWord.append(&curr->letter);
+
+      // Explore the left and right possible words
+      if (curr->left != nullptr || curr->right != nullptr) {
+        possibles.insert( possibles.end(), search(*curr, prefix).begin(), search(*curr, prefix).end() );
+      }
+
+      // Explore additions to current word
+      if (curr->middle != nullptr) {
+        possibles.insert( possibles.end(), search(*curr, currWord).begin(), search(*curr, prefix).end() );
+      }
+
+      // Push to results if the node is a word node
+      if (curr->wordLabel) {
+        possibles.push_back(make_pair(currWord, curr->frequency));
+      }
+
+    }
+
     return possibles;
   }
 /*
@@ -232,7 +247,6 @@ private:
     return possibles;
   }
 */
-
 
 };
 
