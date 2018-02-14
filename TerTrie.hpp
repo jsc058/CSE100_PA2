@@ -20,7 +20,13 @@ class TerTrie {
       string current;
       int parent = 0;	// 0 = from left, 1 = from right, 2 = from middle
       int index = 0;  // index to loop through word
-
+/*
+	size_t found = word.find("though");
+        if (found != -1) {
+          parent = 5;
+	  cout << "prefix tho" << endl;
+        }
+*/ 
       // If no nodes exist already, insert new node as the root.
       if (root == nullptr) {
         root = new TrieNode(word[0]);
@@ -85,9 +91,14 @@ class TerTrie {
 	}
       }
 
-      // Check if it's the last letter of the word
+      // Check if the word already exist, then increase frequency
       if (word[index] == '\0' && prevNode->wordLabel == true) {
         prevNode->frequency++;
+        return true;
+    
+        // Check if all nodes exist, but have to add wordLabel
+      } else if (word[index] == '\0' && prevNode->wordLabel == false) {
+        prevNode->wordLabel = true;
         return true;
       }
 
