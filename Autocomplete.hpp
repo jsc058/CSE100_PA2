@@ -135,7 +135,7 @@ public:
     if (curr->left != nullptr) {
       completions.push(*curr->left);
     }
-  
+
     // Pop from stack to find all completions
     while (completions.size() != 0) {
       currWord = prefix;
@@ -145,7 +145,7 @@ public:
 
       // Explore the left and right possible words
       if (curr->left != nullptr || curr->right != nullptr) {
-        possibles_sub = search(*curr, prefix);
+        possibles_sub = search(*curr, currWord);
         possibles.insert( possibles.end(), possibles_sub.begin(), possibles_sub.end() );
       }
 
