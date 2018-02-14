@@ -52,7 +52,7 @@ int main() {
   } else {
     cout << "Not found" << endl;
   }
-
+/*
   vector<pair<string,int>> tester;
   tester.push_back(make_pair("all",2));
   tester.push_back(make_pair("hoe",3));
@@ -64,12 +64,13 @@ int main() {
   
   sort(tester.begin(), tester.end()); 
   sort(tester.begin(), tester.end(), sortbysec);
-  int i = 0;
+  */
+
   vector<string> returned;
+  /*
   returned = wordsTest.predictCompletions("a");
   //cout << tester << endl;
-/*
-  vector<string> returned;
+  //vector<string> returned;
   vector<string> correct;
   correct.push_back("ace");
   correct.push_back("ape");
@@ -77,26 +78,44 @@ int main() {
   correct.push_back("applet");
 
   // Test 1
-  returned = wordsTest.predictCompletions("a");
+  //returned = wordsTest.predictCompletions("a");
   if (returned == correct) {
     cout << "Passed Test 1" << endl;
   } else {
     cout << "Failed Test 1" << endl;
     return -1;
   }
-
+*/
   // Test 2
   vector<string> correct2;
-  correct.push_back("ape");
-  correct.push_back("apple");
-  correct.push_back("applet");
-  returned = wordsTest.predictCompletions("ap");
-  if (returned == correct) {
+  //correct2.push_back("ape");
+  correct2.push_back("apple");
+  correct2.push_back("applet");
+  returned = wordsTest.predictCompletions("apple");
+  if (returned == correct2) {
     cout << "Passed Test 2" << endl;
   } else {
     cout << "Failed Test 2" << endl;
     return -1;
   }
-  */
+
+  // Test3
+  Autocomplete wordsTest2(AutocompleteUtils::getWords("TestCases/SingleCorpus.txt"));
+  vector<string> correct3;
+  vector<string> returned2;
+  correct3.push_back("wasn't");
+  returned2 = wordsTest2.predictCompletions("wa");
+  if (returned2 == correct3) {
+    cout << "Passed Test 3" << endl;
+  } else {
+    cout << "Failed Test 3" << endl;
+    return -1;
+  }
+vector<string>returned3;
+
+  Autocomplete wordsTest3(AutocompleteUtils::getWords("TestCases/ModerateCorpus.txt"));
+  returned3 = wordsTest3.predictCompletions("tho");
+  Autocomplete wordsTest4(AutocompleteUtils::getWords("TestCases/LargeCorpus.txt"));
+  
   return -1;
 }
