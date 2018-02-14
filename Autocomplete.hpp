@@ -147,6 +147,7 @@ private:
   // start: last letter of the prefix
   vector<pair<string,unsigned int>> search(TrieNode& start, const string prefix) {
     vector<pair<string,unsigned int>> possibles;
+    vector<pair<string,unsigned int>> possibles_sub;
     stack<TrieNode> completions;
     string currWord;
     TrieNode * curr = start.middle;
@@ -176,13 +177,14 @@ private:
 
       // Explore the left and right possible words
       if (curr->left != nullptr || curr->right != nullptr) {
-        possibles.insert( possibles.end(), search(*curr, prefix).begin(), search(*curr, prefix).end() );
+        possibles_sub = search(*curr, prefix);
+        possibles.insert( possibles.end(), possibles_sub.begin(), possibles_sub.end() );
       }
 
       // Explore additions to current word
       if (curr->middle != nullptr) {
-
-        possibles.insert( possibles.end(), search(*curr, currWord).begin(), search(*curr, prefix).end() );
+        possibles_sub = search(*curr, currWord);
+        possibles.insert( possibles.end(), possibles_sub.begin(), possibles_sub.end() );
       }
 
       // Push to results if the node is a word node
