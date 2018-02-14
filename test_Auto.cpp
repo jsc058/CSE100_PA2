@@ -14,7 +14,7 @@ using namespace std;
 
 int main() {
 
-  vector<string>* v = new vector<string>(10);
+  //vector<string>* v = new vector<string>(10);
   /*v->push_back(string("apple"));
   v->push_back(string("ape"));
   v->push_back(string("applet"));
@@ -93,11 +93,11 @@ int main() {
 */
   // Test 2
   vector<string> correct2(10);
-  correct.push_back("ape");
-  correct.push_back("apple");
-  correct.push_back("applet");
+  correct2.push_back("ape");
+  correct2.push_back("apple");
+  correct2.push_back("applet");
   returned = wordsTest.predictCompletions("ap");
-  if (returned == correct) {
+  if (returned == correct2) {
     cout << "Passed Test 2" << endl;
   } else {
     cout << "Failed Test 2" << endl;

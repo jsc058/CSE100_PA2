@@ -147,6 +147,7 @@ private:
     deleteAll(node->middle);
 
     delete node;
+    node = NULL;
 
   }
 
