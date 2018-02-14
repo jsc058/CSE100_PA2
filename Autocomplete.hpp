@@ -111,6 +111,60 @@ public:
     return predictedW;
   }
 
+  // DFS helper function
+  // start: last letter of the prefix
+  vector<pair<string,unsigned int>> search(TrieNode& start, const string prefix) {
+    vector<pair<string,unsigned int>> possibles;
+    vector<pair<string,unsigned int>> possibles_sub;
+    stack<TrieNode> completions;
+    string currWord;
+    TrieNode * curr = start.middle;
+
+    // If prefix is a word, add to possibles
+    if (start.wordLabel) {
+      possibles.push_back(make_pair(prefix, start.frequency));
+    }
+
+    // Add all children of the prefix end to the stack
+    if (curr != nullptr) {
+      completions.push(*curr);
+    }
+    if (curr->right != nullptr) {
+      completions.push(*curr->right);
+    }
+    if (curr->left != nullptr) {
+      completions.push(*curr->left);
+    }
+  
+    // Pop from stack to find all completions
+    while (completions.size() != 0) {
+      currWord = prefix;
+      curr = &completions.top();
+      completions.pop();
+      currWord.append(&curr->letter);
+
+      // Explore the left and right possible words
+      if (curr->left != nullptr || curr->right != nullptr) {
+        possibles_sub = search(*curr, prefix);
+        possibles.insert( possibles.end(), possibles_sub.begin(), possibles_sub.end() );
+      }
+
+      // Explore additions to current word
+      if (curr->middle != nullptr) {
+        possibles_sub = search(*curr, currWord);
+        possibles.insert( possibles.end(), possibles_sub.begin(), possibles_sub.end() );
+      }
+
+      // Push to results if the node is a word node
+      if (curr->wordLabel) {
+        possibles.push_back(make_pair(currWord, curr->frequency));
+      }
+
+    }
+
+    return possibles;
+  }
+
   /* Destructor */
   ~Autocomplete() {
     deleteAll(trie->root);
@@ -142,59 +196,7 @@ private:
 
   }
 
-  // DFS helper function
-  // start: last letter of the prefix
-  vector<pair<string,unsigned int>> search(TrieNode& start, const string prefix) {
-    vector<pair<string,unsigned int>> possibles;
-    vector<pair<string,unsigned int>> possibles_sub;
-    stack<TrieNode> completions;
-    string currWord;
-    TrieNode * curr = start.middle;
 
-    // If prefix is a word, add to possibles
-    if (start.wordLabel) {
-      possibles.push_back(make_pair(prefix, start.frequency));
-    }
-
-    // Add all children of the prefix end to the stack
-    if (curr != nullptr) {
-      completions.push(*curr);
-    }
-    if (curr->right != nullptr) {
-      completions.push(*curr->right);
-    }
-    if (curr->left != nullptr) {
-      completions.push(*curr->left);
-    }
-
-    // Pop from stack to find all completions
-    while (completions.size() != 0) {
-      currWord = prefix;
-      curr = &completions.top();
-      completions.pop();
-      currWord.append(&curr->letter);
-
-      // Explore the left and right possible words
-      if (curr->left != nullptr || curr->right != nullptr) {
-        possibles_sub = search(*curr, prefix);
-        possibles.insert( possibles.end(), possibles_sub.begin(), possibles_sub.end() );
-      }
-
-      // Explore additions to current word
-      if (curr->middle != nullptr) {
-        possibles_sub = search(*curr, currWord);
-        possibles.insert( possibles.end(), possibles_sub.begin(), possibles_sub.end() );
-      }
-
-      // Push to results if the node is a word node
-      if (curr->wordLabel) {
-        possibles.push_back(make_pair(currWord, curr->frequency));
-      }
-
-    }
-
-    return possibles;
-  }
 
 };
 
