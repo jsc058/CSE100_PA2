@@ -78,7 +78,8 @@ int main() {
   correct.push_back("applet");
 
   // Test 1
-  //returned = wordsTest.predictCompletions("a");
+  returned = wordsTest.predictCompletions("a");
+
   if (returned == correct) {
     cout << "Passed Test 1" << endl;
   } else {
