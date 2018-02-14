@@ -20,13 +20,12 @@ class TerTrie {
       string current;
       int parent = 0;	// 0 = from left, 1 = from right, 2 = from middle
       int index = 0;  // index to loop through word
-/*
-	size_t found = word.find("though");
+
+	size_t found = word.find("am");
         if (found != -1) {
           parent = 5;
-	  cout << "prefix tho" << endl;
         }
-*/ 
+ 
       // If no nodes exist already, insert new node as the root.
       if (root == nullptr) {
         root = new TrieNode(word[0]);

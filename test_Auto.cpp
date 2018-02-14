@@ -54,18 +54,22 @@ int main() {
   }
 /*
   vector<pair<string,int>> tester;
-  tester.push_back(make_pair("all",2));
-  tester.push_back(make_pair("hoe",3));
-  tester.push_back(make_pair("ball",1));
-  tester.push_back(make_pair("allow",1));
-  tester.push_back(make_pair("hall",1));
-  tester.push_back(make_pair("start",6));
-  tester.push_back(make_pair("starter",6));
+  tester.push_back(make_pair("a",242));
+  tester.push_back(make_pair("and",264));
+  tester.push_back(make_pair("are",59));
+  tester.push_back(make_pair("all",46));
+  tester.push_back(make_pair("as",43));
+  tester.push_back(make_pair("at",37));
+  tester.push_back(make_pair("an",24));
+  tester.push_back(make_pair("about",15));
+  tester.push_back(make_pair("after",11));
+  tester.push_back(make_pair("again",11));
+  tester.push_back(make_pair("am",11));
+  tester.push_back(make_pair("any",11));
   
-  sort(tester.begin(), tester.end()); 
+  //sort(tester.begin(), tester.end()); 
   sort(tester.begin(), tester.end(), sortbysec);
   */
-
   vector<string> returned;
   /*
   returned = wordsTest.predictCompletions("a");
@@ -115,8 +119,8 @@ int main() {
 vector<string>returned3;
 
   Autocomplete wordsTest3(AutocompleteUtils::getWords("TestCases/ModerateCorpus.txt"));
-  returned3 = wordsTest3.predictCompletions("tho");
-  Autocomplete wordsTest4(AutocompleteUtils::getWords("TestCases/LargeCorpus.txt"));
+  returned3 = wordsTest3.predictCompletions("a");
+  //Autocomplete wordsTest4(AutocompleteUtils::getWords("TestCases/LargeCorpus.txt"));
   
   return -1;
 }
