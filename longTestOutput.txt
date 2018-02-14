@@ -164,7 +164,7 @@ Successfully completed prefix "blan" as "bland blank blanket blanks blankets bla
 Incorrectly completed prefix "number". Expected answer is "number numbers numbered numbering numbersi number1 number17 numberbut numberless numberous". Actual output was 'number numbers numbered numbering numbersi number1 number17 numbersthis numberous numberbut'
 Successfully completed prefix "oc" as "ocean occasional occasionally october occasions occur occasion occurred occurs ocr"
 Successfully completed prefix "refundw" as "refundwe refundwill"
-Successfully completed prefix "ten" as "ten tend tension tent tends tender tendency tennis tenor tense"
+Incorrectly completed prefix "ten". Expected answer is "ten tend tension tent tends tender tendency tennis tenor tense". Actual output was 'ten tend tension tent tends tender tennis tendency tenor tense'
 Incorrectly completed prefix "furt". Expected answer is "further furthermore furtado furtado's furthering furture furtheri furtherthis furtiva furtardo". Actual output was 'further furthermore furtado furtado's furture furthering furtiva furtheri furtherthis furtwangler'
 Successfully completed prefix "saul" as "saul saul's sault"
 Incorrectly completed prefix "days". Expected answer is "days daysi days' daysand daysthe days- daysbut daysit daysnot daysthis". Actual output was 'days daysi days' daysand daysthe daysit daysbut daysthis daysnot daysa'
@@ -174,7 +174,7 @@ Successfully completed prefix "qualityblac" as "qualityblack"
 Successfully completed prefix "alrighton" as "alrighton"
 Successfully completed prefix "death-s" as "death-squad"
 Incorrectly completed prefix "cybe". Expected answer is "cyber cybermen cyberpunk cybertron cybershot cyberspace cyber-hunter cyberia cybermen's cybernetic". Actual output was 'cyber cybermen cyberpunk cybershot cybertron cyberspace cyber-hunter cyberia cybermen's cybernetic'
-Incorrectly completed prefix "report". Expected answer is "report reports reported reporting reporter reportedly reporters report11 reportage reportage'". Actual output was 'report reports reported reporting reporter reportedly reporters reporter7 reportsy reportssadly'
+Incorrectly completed prefix "report". Expected answer is "report reports reported reporting reporter reportedly reporters report11 reportage reportage'". Actual output was 'report reports reported reporting reporter reportedly reporters reportó reportsy reportssadly'
 Successfully completed prefix "stoog" as "stooges stooge stooges' stooges70's stoogesnot stoogesthe"
 Successfully completed prefix "famer's" as "famer's"
 Successfully completed prefix "heu" as "heuler's heurestic heuristic heurs heusen heute heuvel"
@@ -634,13 +634,13 @@ Successfully completed prefix "hoursfro" as "hoursfrom"
 Incorrectly completed prefix "ido". Expected answer is "idol idols idolatry idog idol' idolitry idolize idolized idolizes ido". Actual output was 'idol idols idolatry idog idolizes idolized idolitry idol' idolto idolworld'
 Successfully completed prefix "momentumwo" as "momentumworse"
 Incorrectly completed prefix "spoo". Expected answer is "spoon spooky spoof spoons spoofs spoonful spooked spooner spook spookiness". Actual output was 'spoon spooky spoof spoons spoofs spoonful spooked spookiness spool spooner'
-Successfully completed prefix "auth" as "author authors author's authentic authority authenticity authorized authors' auther authored"
+Incorrectly completed prefix "auth". Expected answer is "author authors author's authentic authority authenticity authorized authors' auther authored". Actual output was 'author authors author's authentic authority authenticity authorized authors' auther authorization'
 Successfully completed prefix "foot" as "footage foot football footnotes footnote footsteps footprint footing footrest footbag"
 Successfully completed prefix "hero'" as "hero's hero'"
 Successfully completed prefix "prefilter" as "prefilter"
 Incorrectly completed prefix "impact". Expected answer is "impact impacted impacts impactful impacting impact-- impactarme impactcome impacti impacti've". Actual output was 'impact impacted impacts impactful impacting impact-- impactarme impactcome impacti've impacti'
 Successfully completed prefix "onwhatthe" as "onwhatthe"
-Successfully completed prefix "subt" as "subtle subtitles subtlety subtitle subtitled subtleties subtly subtext subtract subtraction"
+Incorrectly completed prefix "subt". Expected answer is "subtle subtitles subtlety subtitle subtitled subtleties subtly subtext subtract subtraction". Actual output was 'subtle subtitles subtlety subtitle subtitled subtleties subtly subtext subtraction subtract'
 Successfully completed prefix "minive" as "miniver"
 Successfully completed prefix "perfo" as "performance performances perform performed performing performers performer performs perfomance perfomances"
 Successfully completed prefix "soothe" as "soothe soothes soothed soother"
@@ -756,7 +756,7 @@ Successfully completed prefix "stripe" as "stripes stripe striped stripers strip
 Incorrectly completed prefix "'a". Expected answer is "'a 'all 'art' 'american 'art 'aaliyah' 'accelerator' 'acting' 'amazon 'an". Actual output was ''a 'all 'art' 'american 'another 'anthem' 'aaliyah' 'accelerator' 'art 'acting''
 Incorrectly completed prefix "dai". Expected answer is "daily daisy dairine dairy dainty daimons daisy's daipers dailogue dailyi". Actual output was 'daily daisy dairine dairy dainty daisy's daipers daimons daines dailyi'
 Successfully completed prefix "bettergoo" as "bettergood"
-Incorrectly completed prefix "fr". Expected answer is "from friends friend free front fresh french frame frustrating frank". Actual output was 'from friends friend free front fresh french frustrating frame frank'
+Successfully completed prefix "fr" as "from friends friend free front fresh french frame frustrating frank"
 Incorrectly completed prefix "whole". Expected answer is "whole wholesome wholeheartedly whole-heartedly wholesale wholes wholeness wholesomeness whole-body whole-heartly". Actual output was 'whole wholesome wholeheartedly whole-heartedly wholesale wholes wholeness wholesomeness wholewoman wholethis'
 Successfully completed prefix "gf" as "gf gfi gfx gf3-64mb gfk gfmedia gf4 gfbf gfcf gfhgrgvg"
 Successfully completed prefix "sucessfull" as "sucessfully"
@@ -1449,7 +1449,7 @@ Successfully completed prefix "dvdhuha" as "dvdhuhavoid"
 Successfully completed prefix "new" as "new news newer newspaper newest newly newborn newton newbie newman"
 Successfully completed prefix "immeas" as "immeasurably immeasurable immeasurables immeasuably immeasurablyi immeasureably"
 Incorrectly completed prefix "herbali". Expected answer is "herbalife herbalism herbalismalso herbalist herbalistmidwife". Actual output was 'herbalife herbalism herbalismalso herbalistmidwife herbalist'
-Incorrectly completed prefix "orien". Expected answer is "oriented orientation oriental orient orientated orientals orientations orienated orienta orientaao". Actual output was 'oriented orientation oriental orient orientated orientals orientations orientalist orientalists orienated'
+Incorrectly completed prefix "orien". Expected answer is "oriented orientation oriental orient orientated orientals orientations orienated orienta orientaao". Actual output was 'oriented orientation oriental orient orientated orientals orientations orientée orienated orientinggeo-direction'
 Successfully completed prefix "hann" as "hannah hannigan hanna hannah's hannibal hannay hannay's hannasyde hanna's hannible"
 Successfully completed prefix "clu" as "club clue clumsy clueless clues clunky clubs clutter cluttered clutch"
 Incorrectly completed prefix "finis". Expected answer is "finish finished finishing finishes finishif finishthe finishand finishit finised finish-". Actual output was 'finish finished finishing finishes finishif finishit finishthe finishand finishperhaps finist'
@@ -2623,7 +2623,7 @@ Successfully completed prefix "mid-n" as "mid-nineties mid-night mid-nineteenth"
 Successfully completed prefix "inthe" as "inthe inthey inthere"
 Successfully completed prefix "wasjus" as "wasjus wasjust"
 Incorrectly completed prefix "doi". Expected answer is "doing doi doin doin' doings doit doig doit's doingthe doi've". Actual output was 'doing doi doin' doin doings doit's doig doit doingthe doi've'
-Successfully completed prefix "rev" as "reviews review reviewers reviewer revenge reviewed revolution reviewing revealed reveal"
+Incorrectly completed prefix "rev". Expected answer is "reviews review reviewers reviewer revenge reviewed revolution reviewing revealed reveal". Actual output was 'reviews review reviewers reviewer revenge reviewed revolution reviewing revealed reveals'
 Incorrectly completed prefix "interpr". Expected answer is "interpretation interpretations interpret interpreted interpreting interpreter interpretive interpreters interprets interpretacion". Actual output was 'interpretation interpretations interpret interpreted interpreting interpreter interpretive interprets interpreters interpretted'
 Successfully completed prefix "raiso" as "raison raisonne raisonne's"
 Incorrectly completed prefix "role". Expected answer is "role roles roleplaying rolei rolethe rolex rolesthe roleshe role--she role--you". Actual output was 'role roles roleplaying rolex rolethe rolei rolesthe roleshe roleslove roleplayers'
@@ -2769,7 +2769,7 @@ Successfully completed prefix "stbcable" as "stbcable"
 Successfully completed prefix "homoge" as "homogenized homogeneityif homogenic homogenised homogenization homogenize"
 Incorrectly completed prefix "mint". Expected answer is "mint minty mintues mintes mintiness minto mintonly mints mintue mintuesi". Actual output was 'mint minty mintues mintes mintiness minto mintonly mints mintuesi mintutes'
 Incorrectly completed prefix "irritatin". Expected answer is "irritating irritatingly irritatingthe irritating- irritating--what's irritatingpicture irritatingthere irritatingtwo irritatingwhile". Actual output was 'irritating irritatingly irritating--what's irritatingpicture irritatingthe irritatingthere irritatingtwo irritatingwhile irritating-'
-Incorrectly completed prefix "intere". Expected answer is "interesting interested interest interests interestingly interestingi interestingthis interestingit interesante interestedi". Actual output was 'interesting interested interest interests interestingly interestingi interestingthis interestedi interesante interestingthe'
+Incorrectly completed prefix "intere". Expected answer is "interesting interested interest interests interestingly interestingi interestingthis interestingit interesante interestedi". Actual output was 'interesting interested interest interests interestingly interestingi interestingthis interestingit interesante interestingthe'
 Incorrectly completed prefix "encyclo". Expected answer is "encyclopedia encyclopedic encyclopedias encyclopaedia encyclopedia-style encyclopediasdictionaries encyclopediathe". Actual output was 'encyclopedia encyclopedic encyclopaedia encyclopedia-style encyclopedias encyclopediasdictionaries encyclopediathe'
 Incorrectly completed prefix "adul". Expected answer is "adult adults adulthood adultery adulterous adulation adultry adultsi adultsthe adult's". Actual output was 'adult adults adulthood adultery adulterous adulation adultry adultsthe adulterated adults''
 Successfully completed prefix "helter" as "helter helter-skelter"
@@ -2811,7 +2811,7 @@ Successfully completed prefix "fruityta" as "fruitytangy"
 Successfully completed prefix "fansan" as "fansand"
 Successfully completed prefix "onkyoi" as "onkyoi"
 Successfully completed prefix "auto" as "auto autobiography automatically automatic autobiographical automotive autographed automated autobots automobile"
-Incorrectly completed prefix "infa". Expected answer is "infamous infant infact infants infantile infantry infatuation infamy infatuated infante". Actual output was 'infamous infant infact infants infantile infatuation infantry infamy infatuated infante'
+Successfully completed prefix "infa" as "infamous infant infact infants infantile infantry infatuation infamy infatuated infante"
 Successfully completed prefix "pilate" as "pilates pilate pilatesthe"
 Successfully completed prefix "emerged" as "emerged"
 Successfully completed prefix "cabaletta" as "cabaletta"
@@ -3196,7 +3196,7 @@ Incorrectly completed prefix "maha". Expected answer is "mahalia mahadeva mahara
 Successfully completed prefix "re-scored" as "re-scoreddestroying"
 Successfully completed prefix "superc" as "supercharged supercedes supercomputer supercop supercalifragicious supercallifragilisticexpialidotious supercar superceded superchunk supercilious"
 Successfully completed prefix "six-year-ol" as "six-year-old six-year-olds"
-Incorrectly completed prefix "ven". Expected answer is "vendor venice venture venus vent vendors vengeance venue venom ventures". Actual output was 'vendor venice venture venus vendors vent vengeance venue venom ventures'
+Successfully completed prefix "ven" as "vendor venice venture venus vent vendors vengeance venue venom ventures"
 Successfully completed prefix "mechagod" as "mechagodzilla mechagodzillaa mechagodzillanext"
 Successfully completed prefix "broc" as "brochure brock broccoli brocade brocaw brocaw's broccholisoad broccolio broccolli brochures"
 Incorrectly completed prefix "warnin". Expected answer is "warning warnings warning- warning-this warningi warningthis warning''' warning-- warning--these warning-only". Actual output was 'warning warnings warning- warningthis warning-this warningi warningwithout warningwhen warningwarningwarning warningthereirwin's'
@@ -3692,7 +3692,7 @@ Successfully completed prefix "v92" as "v92"
 Successfully completed prefix "items--" as "items--a"
 Successfully completed prefix "vo5" as "vo5"
 Incorrectly completed prefix "mfgr". Expected answer is "mfgr mfgr'er mfgrnot". Actual output was 'mfgr'er mfgrnot mfgr'
-Incorrectly completed prefix "interes". Expected answer is "interesting interested interest interests interestingly interestingi interestingthis interestingit interesante interestedi". Actual output was 'interesting interested interest interests interestingly interestingi interestingthis interestingthe interestedi interestingit'
+Incorrectly completed prefix "interes". Expected answer is "interesting interested interest interests interestingly interestingi interestingthis interestingit interesante interestedi". Actual output was 'interesting interested interest interests interestingly interestingi interestingthis interestedi interestingit interesante'
 Successfully completed prefix "mehopefu" as "mehopefully"
 Incorrectly completed prefix "adel". Expected answer is "adele adel's adeline adelon adel adelaide adele's". Actual output was 'adele adel's adeline adelon adelaide adele's adel'
 Successfully completed prefix "read" as "read reading reader readers ready reads readable readings reader's readily"
@@ -4006,7 +4006,7 @@ Incorrectly completed prefix "parla". Expected answer is "parlay parla parlando-
 Incorrectly completed prefix "kri". Expected answer is "kristin kristy kristen kris kristine krishnamurti krishna kristofferson kries kristen's". Actual output was 'kristin kristy kristen kris kristine krishnamurti kristofferson krishna kries kristen's'
 Successfully completed prefix "ba" as "bad back band baby based battery basic basically bag barely"
 Successfully completed prefix "ub4" as "ub40"
-Incorrectly completed prefix "look". Expected answer is "look looking looks looked lookout lookin lookup lookin' looker look-". Actual output was 'look looking looks looked lookout lookin lookup lookin' looker lookingfor'
+Incorrectly completed prefix "look". Expected answer is "look looking looks looked lookout lookin lookup lookin' looker look-". Actual output was 'look looking looks looked lookout lookin lookup lookin' looker lookingi'
 Successfully completed prefix "som" as "some something someone sometimes somewhat somewhere somehow somebody someday sometime"
 Incorrectly completed prefix "resta". Expected answer is "restaurant restart restaurants restarted restarting restarts restate restained restates restahh". Actual output was 'restaurant restart restaurants restarted restarting restarts restate restates restained restaurants''
 Successfully completed prefix "uselessplacing" as "uselessplacing"
@@ -4299,7 +4299,7 @@ Successfully completed prefix "'01" as "'01"
 Successfully completed prefix "ezpe" as "ezpecially"
 Incorrectly completed prefix "engl". Expected answer is "english england englund england's englishman english-speaking englandi englishi englishmen englund's". Actual output was 'english england englund england's englishman english-speaking englishi englund's englandi englishmen'
 Successfully completed prefix "uruk-ha" as "uruk-hai"
-Incorrectly completed prefix "ach". Expected answer is "achieve achieved achievement achievements achieves achieving ache aches acheive aching". Actual output was 'achieve achieved achievement achievements achieves achieving aches ache acheive aching'
+Incorrectly completed prefix "ach". Expected answer is "achieve achieved achievement achievements achieves achieving ache aches acheive aching". Actual output was 'achieve achieved achievement achieves achievements achieving aches ache acheive aching'
 Successfully completed prefix "caco" as "cacophony cacoon cacophany"
 Successfully completed prefix "z-" as "z-grade z-ro z-strap z-fighters z-movie"
 Incorrectly completed prefix "frei". Expected answer is "freight freind freinds freightening frei freighter freindly freiberg freida freids". Actual output was 'freight freinds freind freightening freighter freindly freightour freindwho freindship freindofed'
@@ -4812,7 +4812,7 @@ Successfully completed prefix "non-dire" as "non-director's non-directorscut"
 Successfully completed prefix "suggeststhis" as "suggeststhis"
 Incorrectly completed prefix "inclu". Expected answer is "included including include includes inclusion inclusive inclusions included- includedand includedi". Actual output was 'included including include includes inclusion inclusive inclusions includedthe included- includethere'
 Successfully completed prefix "'mat" as "'matching' 'matilda' 'matlab' 'matrix' 'matt 'matted' 'mature' 'maturing'"
-Incorrectly completed prefix "odyss". Expected answer is "odyssey odysseus odyssean odysseus' odyssesy odysseus's odysseyi odysseys odysseyulysses odyssies". Actual output was 'odyssey odysseus odyssean odyssée odyssesy odysseus' odysseus's odysseyi odysseys odysseyulysses'
+Incorrectly completed prefix "odyss". Expected answer is "odyssey odysseus odyssean odysseus' odyssesy odysseus's odysseyi odysseys odysseyulysses odyssies". Actual output was 'odyssey odysseus odyssean odyssesy odysseus' odysseus's odysseyi odysseys odysseyulysses odyssies'
 Successfully completed prefix "12ft" as "12ft"
 Successfully completed prefix "artistvery" as "artistvery"
 Successfully completed prefix "missingt" as "missingthe missingtexas missingthrough missingtracks"
@@ -4984,7 +4984,7 @@ Incorrectly completed prefix "so-". Expected answer is "so-called so-so so- so-o
 Incorrectly completed prefix "stories". Expected answer is "stories stories' storiesi stories- stories-- storiesjames storiesthe stories---long stories--mainly stories-which". Actual output was 'stories stories' storiesi storiesjames storiesthe storiesthemes storiesthat storiesthank's storiesstephen storiesson-come'
 Incorrectly completed prefix "migh". Expected answer is "might mighty might've mightily might-be might-be-an-awesome mightened mighter mightest mightg". Actual output was 'might mighty might've mightily might-be-an-awesome mightened mighter mightest mightg mightier'
 Successfully completed prefix "vicissitu" as "vicissitudes"
-Incorrectly completed prefix "hab". Expected answer is "habit habits habitat habitats haber habgood's hablar habana habitually habra". Actual output was 'habit habits habitat habitats haber hablar habgood's habana había habra'
+Incorrectly completed prefix "hab". Expected answer is "habit habits habitat habitats haber habgood's hablar habana habitually habra". Actual output was 'habit habits habitat habitats haber habgood's hablar habitually habra había'
 Successfully completed prefix "luridweak" as "luridweak"
 Successfully completed prefix "its" as "its itself its' itso itselfi itselfthe itsave itshe itstill itselfthis"
 Incorrectly completed prefix "spra". Expected answer is "spray sprayer sprayed sprays spraying sprawling sprang sprayers spralja spraters". Actual output was 'spray sprayer sprayed sprays spraying sprawling sprang sprayers spray-taste spray3'
@@ -5117,7 +5117,7 @@ Successfully completed prefix "escenograp" as "escenography"
 Successfully completed prefix "jazzre" as "jazzreleased"
 Successfully completed prefix "error-correcti" as "error-correction"
 Successfully completed prefix "aroundyou" as "aroundyou aroundyou'll"
-Incorrectly completed prefix "aqu". Expected answer is "aquarium aqua aquired aquainted aquarius aqueduct aquire aquariums aqueducts aquellas". Actual output was 'aquarium aqua aquired aquainted aquarius aqueduct aquí aquellos aquellas aqueducts'
+Incorrectly completed prefix "aqu". Expected answer is "aquarium aqua aquired aquainted aquarius aqueduct aquire aquariums aqueducts aquellas". Actual output was 'aquarium aqua aquired aquainted aquarius aqueduct aquí aquire aquellos aquellas'
 Successfully completed prefix "derk" as "derka derk derk-derk-allah"
 Successfully completed prefix "personificat" as "personification"
 Successfully completed prefix "uninteres" as "uninteresting uninterested uninterestingthis uninterestinga uninterestingdon't uninterestingit's uninterestingly uninterestingoh uninterestingthat uninterestingthe"
@@ -5138,7 +5138,7 @@ Incorrectly completed prefix "rewr". Expected answer is "rewrite rewritten rewri
 Successfully completed prefix "hi" as "his him high highly history hit himself historical hits hilarious"
 Incorrectly completed prefix "foul". Expected answer is "foul foul-mouthed fould fouled fouls foul-mouth foul-smelling fouland foulanouncersand foulmouthed". Actual output was 'foul foul-mouthed fould fouled fouls foul-smelling fouland foulanouncersand foulmouthed foulsauces'
 Incorrectly completed prefix "spices". Expected answer is "spices spicesi spicesit spices4". Actual output was 'spices spicesit spices4 spicesi'
-Incorrectly completed prefix "agr". Expected answer is "agree agreed agrees agreement agreements agressive agreat agreeable agreeing agricultural". Actual output was 'agree agreed agrees agreement agreements agressive agreeing agreat agreeable agricultural'
+Incorrectly completed prefix "agr". Expected answer is "agree agreed agrees agreement agreements agressive agreat agreeable agreeing agricultural". Actual output was 'agree agreed agrees agreement agreements agressive agreeing agreeable agreat agricultural'
 Successfully completed prefix "1" as "1 10 12 15 100 13 14 11 1st 18"
 Successfully completed prefix "tutor" as "tutorial tutorials tutor tutoring tutored tutorial-style tutorialas tutorialsi tutorialsome tutorialsure"
 Successfully completed prefix "duece" as "duecebig dueces"
@@ -5346,7 +5346,7 @@ Successfully completed prefix "tampe" as "tampered tamper tampering tamperingnot
 Successfully completed prefix "bluewate" as "bluewater"
 Incorrectly completed prefix "stair". Expected answer is "stairs staircase stair staircases stairway stairwell stairways stairwells". Actual output was 'stairs staircase stair staircases stairway stairways stairwell stairwells'
 Successfully completed prefix "itsun" as "itsunique itsunny"
-Incorrectly completed prefix "ay". Expected answer is "ayla ayla's ayn ayers aykroyd ay ayala aye ayoung ayatollah". Actual output was 'ayla ayla's ayn ayers aykroyd ayala ayoung ay aye ayden'
+Incorrectly completed prefix "ay". Expected answer is "ayla ayla's ayn ayers aykroyd ay ayala aye ayoung ayatollah". Actual output was 'ayla ayla's ayn ayers aykroyd ayala ayoung aye ay ayres'
 Successfully completed prefix "'mam" as "'mama 'mammoths'"
 Successfully completed prefix "impresse" as "impressed impresses impressed--neither impressedas impresseddefinately impressedhowever impressedi impressedmy impressednot impressedproceed"
 Incorrectly completed prefix "stif". Expected answer is "stiff stiffer stiffness stifled stiffler stifling stiffly stifler stiffs stiffthe". Actual output was 'stiff stiffer stiffness stifled stiffler stifling stifler stiffly stiffs stifler's'
@@ -5702,13 +5702,13 @@ Successfully completed prefix "harderon" as "harderone"
 Incorrectly completed prefix "isl". Expected answer is "island islands islamic islam isle isles island's islanders isley isl". Actual output was 'island islands islamic islam isle isles islanders island's islandi isley'
 Incorrectly completed prefix "gener". Expected answer is "general generation generally generic generations generous generated generate generates generator". Actual output was 'general generation generally generic generations generous generated generate generator generates'
 Successfully completed prefix "specting" as "specting"
-Incorrectly completed prefix "buen". Expected answer is "buen bueno buendia buena buenos buendias buenas buendia's buenasmuy buenísimo". Actual output was 'buen bueno buendia buena buenos buendias buendia's buenísimo buenísmo buenas'
+Incorrectly completed prefix "buen". Expected answer is "buen bueno buendia buena buenos buendias buenas buendia's buenasmuy buenísimo". Actual output was 'buen bueno buendia buena buenos buendias buendia's buenas buenasmuy buenísimo'
 Incorrectly completed prefix "dolla". Expected answer is "dollars dollar dollanganger dollar's dollars' dollarsi dollarsit dollarstore dollanger dollarall". Actual output was 'dollars dollar dollar's dollarstore dollars' dollanganger dollarsit dollarsi dollars80 dollaz'
 Successfully completed prefix "spi" as "spirit spiritual spin spinner spice spiderman spite spine spinning spider"
 Successfully completed prefix "unhan" as "unhandy unhang"
 Successfully completed prefix "env�os" as ""
 Successfully completed prefix "demu" as "demunn demuestra demur demurred"
-Incorrectly completed prefix "oraci". Expected answer is "oraciones oracióneste oraciónlo". Actual output was 'oracióneste oraciónlo oraciones'
+Successfully completed prefix "oraci" as "oraciones oracióneste oraciónlo"
 Successfully completed prefix "writtenth" as "writtenthe writtenthis writtenthere"
 Successfully completed prefix "under-recog" as "under-recognised under-recognized"
 Successfully completed prefix "abovebi" as "abovebig"
@@ -5751,7 +5751,7 @@ Successfully completed prefix "sto" as "story stories stop store stopped storyli
 Incorrectly completed prefix "flow". Expected answer is "flow flows flowers flowing flower flowed flowery flown flowering flowermouth". Actual output was 'flow flows flowers flowing flower flowed flowery flown flowerpots flowering'
 Successfully completed prefix "jarisi" as "jarisic"
 Incorrectly completed prefix "tarr". Expected answer is "tarrantino tarrant tarrasch tarries tarr tarran tarrant's tarred tarrentino tarrible". Actual output was 'tarrantino tarrant tarrasch tarries tarrant's tarred tarrentino tarrible tarries' tarry'
-Incorrectly completed prefix "aim". Expected answer is "aimed aim aiming aimlessly aimless aims aimee aimco aiment aimerais". Actual output was 'aimed aim aiming aimlessly aimless aims aimee aimco aimé aiment'
+Successfully completed prefix "aim" as "aimed aim aiming aimlessly aimless aims aimee aimco aiment aimerais"
 Successfully completed prefix "manipula" as "manipulation manipulative manipulated manipulate manipulating manipulations manipulator manipulates manipulable manipulación"
 Successfully completed prefix "gro-lite" as "gro-lites"
 Incorrectly completed prefix "ferti". Expected answer is "fertilizer fertile fertility fertilize fertiliser fertilization fertilizers fertilizing fertilty". Actual output was 'fertilizer fertile fertility fertiliser fertilization fertilize fertilizers fertilizing fertilty'
@@ -5784,7 +5784,7 @@ Incorrectly completed prefix "meet". Expected answer is "meet meets meeting meet
 Successfully completed prefix "the" as "the they there them these their then there's they're themselves"
 Successfully completed prefix "-wil" as "-wild -will"
 Incorrectly completed prefix "thoughts". Expected answer is "thoughts thoughtsi thoughts- thoughts----thoughts thoughts1 thoughtsanother thoughtsbecause thoughtscarpetta thoughtsemotionsmotivationslives thoughtsfeelings". Actual output was 'thoughts thoughtsi thoughts- thoughtstop thoughtsthis thoughtsso thoughtsome thoughtsmith's thoughtsminds thoughtshowever'
-Incorrectly completed prefix "ade". Expected answer is "adequate adequately adept ademas adele adesso adel's adeline adelon además". Actual output was 'adequate adequately adept ademas adele adesso adesso's adeptly adel's adeline'
+Incorrectly completed prefix "ade". Expected answer is "adequate adequately adept ademas adele adesso adel's adeline adelon además". Actual output was 'adequate adequately adept ademas adele adesso adesso's adeptly adel's además'
 Successfully completed prefix "deli" as "delivery delivered delightful deliver delivers delight delicious delighted delicate delivering"
 Successfully completed prefix "impeccable" as "impeccable"
 Successfully completed prefix "ilaha" as "ilaha"
@@ -5794,7 +5794,7 @@ Incorrectly completed prefix "40". Expected answer is "40 400 40's 4000 40s 40th
 Successfully completed prefix "husbandson" as "husbandson"
 Successfully completed prefix "kruis" as "kruiser"
 Successfully completed prefix "songsan" as "songsand songsanyways"
-Successfully completed prefix "author" as "author authors author's authority authorized authors' authored authorization authoritative authorities"
+Incorrectly completed prefix "author". Expected answer is "author authors author's authority authorized authors' authored authorization authoritative authorities". Actual output was 'author authors author's authority authorized authors' authored authorization authoritative authorship'
 Successfully completed prefix "ar" as "are around arrived art aren't area artist artists areas army"
 Successfully completed prefix "itten's" as "itten's"
 Successfully completed prefix "co-scripte" as "co-scripted"
@@ -5921,7 +5921,7 @@ Incorrectly completed prefix "instal". Expected answer is "install installed ins
 Successfully completed prefix "hasthi" as "hasthis"
 Successfully completed prefix "lotwh" as "lotwhat"
 Successfully completed prefix "schroe" as "schroeder schroedinger schroedinger's"
-Successfully completed prefix "sal" as "sale salad sales salt sally salsa salvation salem salty salesman"
+Incorrectly completed prefix "sal". Expected answer is "sale salad sales salt sally salsa salvation salem salty salesman". Actual output was 'sale salad sales salt sally salsa salvation salem salty salon'
 Successfully completed prefix "yeppers" as "yeppers"
 Successfully completed prefix "all" as "all allow allows allowed all-time allowing allen alli alley allan"
 Successfully completed prefix "securitysepara" as "securityseparationfencinggatesbarricadeslockshardwareintrusion"
@@ -6144,7 +6144,7 @@ Incorrectly completed prefix "seem". Expected answer is "seems seem seemed seemi
 Successfully completed prefix "okotherwise" as "okotherwise"
 Successfully completed prefix "catholic-b" as "catholic-bashing"
 Successfully completed prefix "sean" as "sean seann seanchan seane seances seanne sean's sean-paul seanwho"
-Incorrectly completed prefix "bol". Expected answer is "bold boleyn bolt bolts bolan bollywood boldly bolster bolton boleyns". Actual output was 'bold boleyn bolt bolts bolan bollywood boldly bolster bolton bolted'
+Incorrectly completed prefix "bol". Expected answer is "bold boleyn bolt bolts bolan bollywood boldly bolster bolton boleyns". Actual output was 'bold boleyn bolt bolts bolan bollywood boldly bolton bolster bolted'
 Successfully completed prefix "puntua" as "puntualidad puntual"
 Incorrectly completed prefix "ferrel". Expected answer is "ferrell ferrel ferrell's ferrel's ferrelland". Actual output was 'ferrell ferrell's ferrel ferrel's ferrelland'
 Incorrectly completed prefix "0". Expected answer is "0 06 007 05 03 04 07 01 02 099". Actual output was '0 06 007 05 03 04 07 099 02 01'
@@ -6399,7 +6399,7 @@ Successfully completed prefix "unintere" as "uninteresting uninterested unintere
 Successfully completed prefix "'preachin" as "'preaching"
 Successfully completed prefix "aile" as "aileen aileen's ailen ailed ailey"
 Successfully completed prefix "amatu" as "amature amatuer amatuerish amaturish amatuers amatureish amaturejean amaturesbuy"
-Incorrectly completed prefix "orient". Expected answer is "oriented orientation oriental orient orientated orientals orientations orienta orientaao orientale". Actual output was 'oriented orientation oriental orient orientated orientations orientals orientaltradingcom orientinggeo-direction orientationwhich'
+Incorrectly completed prefix "orient". Expected answer is "oriented orientation oriental orient orientated orientals orientations orienta orientaao orientale". Actual output was 'oriented orientation oriental orient orientated orientals orientations orienta orientée orientinggeo-direction'
 Successfully completed prefix "216" as "216 21612"
 Successfully completed prefix "uneraser" as "uneraser"
 Successfully completed prefix "titlesbut" as "titlesbut"
@@ -6942,7 +6942,7 @@ Incorrectly completed prefix "bull". Expected answer is "bullock bull bullet bul
 Successfully completed prefix "containerarou" as "containeraround"
 Successfully completed prefix "attachme" as "attachment attachments attachmentenjoy attachmentsattach attachmentsthe attachmentwith"
 Incorrectly completed prefix "uncharacterist". Expected answer is "uncharacteristically uncharacteristic uncharacteristic--elements". Actual output was 'uncharacteristically uncharacteristic--elements uncharacteristic'
-Incorrectly completed prefix "l'". Expected answer is "l'amour l'amour's l'oreal l'm l'a l'album l'argent l'art l'engle l'infiniment". Actual output was 'l'amour l'amour's l'oreal l'm l'infiniment l'italia l'album l'argent l'oeuvre l'engle'
+Incorrectly completed prefix "l'". Expected answer is "l'amour l'amour's l'oreal l'm l'a l'album l'argent l'art l'engle l'infiniment". Actual output was 'l'amour l'amour's l'oreal l'm l'oeuvre l'album l'engle l'argent l'italia l'art'
 Successfully completed prefix "high-sound" as "high-sounding"
 Successfully completed prefix "firstreadi" as "firstreading"
 Successfully completed prefix "brightene" as "brightener brightened"
