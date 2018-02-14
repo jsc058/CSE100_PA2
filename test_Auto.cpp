@@ -117,10 +117,11 @@ int main() {
     return -1;
   }
 vector<string>returned3;
+vector<string>returned4;
 
   Autocomplete wordsTest3(AutocompleteUtils::getWords("TestCases/ModerateCorpus.txt"));
-  returned3 = wordsTest3.predictCompletions("a");
-  //Autocomplete wordsTest4(AutocompleteUtils::getWords("TestCases/LargeCorpus.txt"));
-  
+  //returned3 = wordsTest3.predictCompletions("a");
+  Autocomplete wordsTest4(AutocompleteUtils::getWords("TestCases/LargeCorpus.txt"));
+  returned4 = wordsTest4.predictCompletions("sl"); 
   return -1;
 }
