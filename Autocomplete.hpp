@@ -97,33 +97,19 @@ public:
     }
 
     char buffer[10000];
+
+    // Check if prefix is a word
     if (to_compare->wordLabel) {
       all_words.push_back(make_pair("", to_compare->frequency));
     }
-    // Start DFS from the last letter of the prefix
+
+    // Traverse all the subwords from prefeix
     traversal(to_compare->middle, buffer, 0, &all_words);
 
     // Sort vector by frequency
-    //sort(all_words.begin(), all_words.end(), sortbysec);
-
-    // Sort vector alphabetically
-    //sort(all_words.begin(), all_words.end());
-    //cout << "Prefix found." << endl;
-    
-    // Start DFS from the last letter of the prefix
-    //all_words = search(*to_compare, prefix);
-    
-    // Sort vector alphabetically and then by frequency
-    //sort(all_words.begin(), all_words.end());
     sort(all_words.begin(), all_words.end(), sortbysec);
 
     // Input the top 10 words to return
-    /*
-    for (int i = 0; i < 10; i++) {
-      current = all_words[i].first;
-      predictedW.push_back(current);
-    }
-    */
     current = all_words[index2].first;
     while (index2 < 10) {
       current.insert(0, prefix);
@@ -147,133 +133,25 @@ public:
 
 private:
 
-  //you may add your own code here
+  //Helper method for destructor
   static void deleteAll(TrieNode * node) {
+
     if (node == nullptr) {
       return;
     }
 
-    //if (node->left != nullptr) {
-      deleteAll(node->left);
-    //}
+    deleteAll(node->left);
 
-    //if (node->right != nullptr) {
-      deleteAll(node->right);
-    //}
+    deleteAll(node->right);
 
-    //if (node->middle != nullptr){
-      deleteAll(node->middle);
-    //}
+    deleteAll(node->middle);
 
     delete node;
 
   }
 
-  // DFS helper function
-  // start: last letter of the prefix
-  vector<pair<string,unsigned int>> search(TrieNode& start, const string prefix) {
-    vector<pair<string,unsigned int>> possibles;
-    stack<TrieNode> completions;
-    string currWord;
-    TrieNode * curr = start.middle;
 
-    // If prefix is a word, add to possibles
-    if (start.wordLabel) {
-      possibles.push_back(make_pair(prefix, start.frequency));
-    }
-
-    // Add all children of the prefix end to the stack
-    if (curr != nullptr) {
-      completions.push(*curr);
-    }
-    if (curr->right != nullptr) {
-      completions.push(*curr->right);
-    }
-    if (curr->left != nullptr) {
-      completions.push(*curr->left);
-    }
-
-    // Pop from stack to find all completions
-    while (completions.size() != 0) {
-      currWord = prefix;
-      curr = &completions.top();
-      completions.pop();
-      currWord = currWord.append(&curr->letter);
-
-      // Explore the left and right possible words
-      if (curr->left != nullptr || curr->right != nullptr) {
-        possibles.insert( possibles.end(), search(*curr, prefix).begin(), search(*curr, prefix).end() );
-      }
-
-      // Explore additions to current word
-      if (curr->middle != nullptr) {
-        possibles.insert( possibles.end(), search(*curr, currWord).begin(), search(*curr, prefix).end() );
-      }
-
-      // Push to results if the node is a word node
-      if (curr->wordLabel) {
-        possibles.push_back(make_pair(currWord, curr->frequency));
-      }
-
-    }
-
-    return possibles;
-  }
-/*
-
-  vector<pair<string,unsigned int>> inorderTraversal(TrieNode& start, string word) {
-    stack<char> completions;
-    string currentWord = word;
-    vector<pair<string,unsigned int>> possibles;
-    TrieNode * curr = &start;
-
-    completions.push(start->letter);
-
-    //while (completions.size() != 0) {
-      // Push all children first
-      if (curr->middle->left != nullptr) {
-        currentWord = currentWord.append(&(curr->middle->left->letter));
-        if (!curr->middle->left->wordLabel) {
-          possibles = inorderTraversal(*(curr->middle->left),currentWord);
-          //currentWord = word;
-        } else {
-          possibles.push_back(make_pair(currentWord,curr->frequency));
-          return possibles;
-        }
-        //currentWord = word;
-      }
-
-    //  if (curr->middle->right != nullptr) {
-      //  completions.push(*(curr->middle->right));
-      //}
-
-      if (curr->middle != nullptr) {
-        currentWord = currentWord.append(&(curr->middle->letter));
-        // Check for word label
-        if (!curr->middle->wordLabel) {
-          possibles = inorderTraversal(*(curr->middle),currentWord);
-          currentWord = word;
-        } else {
-          possibles.push_back(make_pair(currentWord,curr->frequency));
-          return possibles;
-        }
-      }
-
-
-      //curr = &(completions.top());
-      //completions.pop();
-      //currentWord.append(&(curr->letter));
-
-      //if (curr->wordLabel) {
-        //possibles.push_back(make_pair(currentWord,curr->frequency));
-        //currentWord.clear();
-        //currentWord = start->letter;
-      //}
-    //}
-    return possibles;
-  }
-*/
-
+ // Method to traverse down tree when searching for predictions
   void traversal(TrieNode * node, char* buffer, int depth,
     vector<pair<string, unsigned int>>* possibles) {
     string myWord;
@@ -284,6 +162,7 @@ private:
 
       // Store the character of this node
       buffer[depth] = node->letter;
+
       if (node->wordLabel) {
         buffer[depth+1] = '\0';
         myWord = buffer;

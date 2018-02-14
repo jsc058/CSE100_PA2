@@ -66,8 +66,8 @@ int main() {
   tester.push_back(make_pair("again",11));
   tester.push_back(make_pair("am",11));
   tester.push_back(make_pair("any",11));
-  
-  //sort(tester.begin(), tester.end()); 
+
+  //sort(tester.begin(), tester.end());
   sort(tester.begin(), tester.end(), sortbysec);
   */
   vector<string> returned;
@@ -92,33 +92,18 @@ int main() {
   }
 */
   // Test 2
-<<<<<<< HEAD
   vector<string> correct2(10);
   correct.push_back("ape");
   correct.push_back("apple");
   correct.push_back("applet");
   returned = wordsTest.predictCompletions("ap");
   if (returned == correct) {
-=======
-  vector<string> correct2;
-  //correct2.push_back("ape");
-  correct2.push_back("apple");
-  correct2.push_back("applet");
-  returned = wordsTest.predictCompletions("apple");
-  if (returned == correct2) {
->>>>>>> beeae84babada42dd443133f9e6feef4c154e1c4
     cout << "Passed Test 2" << endl;
   } else {
     cout << "Failed Test 2" << endl;
     return -1;
   }
 
-<<<<<<< HEAD
-  // Test 3
-  vector<string> correct3(10);
-  returned = wordsTest.predictCompletions("ball");
-  if (returned == correct) {
-=======
   // Test3
   Autocomplete wordsTest2(AutocompleteUtils::getWords("TestCases/SingleCorpus.txt"));
   vector<string> correct3;
@@ -126,23 +111,22 @@ int main() {
   correct3.push_back("wasn't");
   returned2 = wordsTest2.predictCompletions("wa");
   if (returned2 == correct3) {
->>>>>>> beeae84babada42dd443133f9e6feef4c154e1c4
     cout << "Passed Test 3" << endl;
   } else {
     cout << "Failed Test 3" << endl;
     return -1;
   }
-<<<<<<< HEAD
-
-  // Test 4
-=======
 vector<string>returned3;
+vector<string>returned4;
 
   Autocomplete wordsTest3(AutocompleteUtils::getWords("TestCases/ModerateCorpus.txt"));
   returned3 = wordsTest3.predictCompletions("a");
   //Autocomplete wordsTest4(AutocompleteUtils::getWords("TestCases/LargeCorpus.txt"));
->>>>>>> beeae84babada42dd443133f9e6feef4c154e1c4
-  
 
+
+  //returned3 = wordsTest3.predictCompletions("a");
+  Autocomplete wordsTest4(AutocompleteUtils::getWords("TestCases/LargeCorpus.txt"));
+  returned4 = wordsTest4.predictCompletions("sl");
+  
   return -1;
 }
