@@ -21,11 +21,6 @@ class TerTrie {
       int parent = 0;	// 0 = from left, 1 = from right, 2 = from middle
       int index = 0;  // index to loop through word
 
-	size_t found = word.find("am");
-        if (found != -1) {
-          parent = 5;
-        }
- 
       // If no nodes exist already, insert new node as the root.
       if (root == nullptr) {
         root = new TrieNode(word[0]);
@@ -44,20 +39,20 @@ class TerTrie {
 
       // If root exists, search for correct position through comparisons
       while (word[index] != '\0') {
-	// If node is null, insert here
-	if (to_compare == nullptr) {
+	      // If node is null, insert here
+	      if (to_compare == nullptr) {
           to_compare = new TrieNode(word[index]);
-	  
-	  // Connect node to tree
-	  if (parent == 0) {
-	    prevNode->left = to_compare;
-	  } else if (parent == 1) {
-	    prevNode->right = to_compare;
+
+	        // Connect node to tree
+	        if (parent == 0) {
+	          prevNode->left = to_compare;
+	        } else if (parent == 1) {
+	          prevNode->right = to_compare;
           } else {
             prevNode->middle = to_compare;
           }
 
-	  // Add the rest of the word in the middle
+	        // Add the rest of the word in the middle
           index++;
           while (word[index] != '\0') {
             to_compare->middle = new TrieNode(word[index]);
@@ -68,35 +63,38 @@ class TerTrie {
           to_compare->wordLabel = true;
           to_compare->frequency++;
           return true;
+        }
 
-          // If item less than current node, go left
-        } else if (word[index] < to_compare->letter) {
+        // If item is less than current, go left
+        else if (word[index] < to_compare->letter) {
           prevNode = to_compare;
-	  parent = 0;
+	        parent = 0;
           to_compare = to_compare->left;
-
-          // If item greather than current node, go right
-        } else if (to_compare->letter < word[index]) {
+        }
+        // If item greather than current node, go right
+        else if (to_compare->letter < word[index]) {
           prevNode = to_compare;
-	  parent = 1;
+	        parent = 1;
           to_compare = to_compare->right;
 
-          // If item is equal to the current node, go middle
-        } else if (to_compare->letter == word[index]) {
+        }
+        // If item is equal to the current node, go middle
+        else if (to_compare->letter == word[index]) {
           index++;
           prevNode = to_compare;
-	  parent = 2;
+	        parent = 2;
           to_compare = to_compare->middle;
-	}
+	      }
       }
 
       // Check if the word already exist, then increase frequency
       if (word[index] == '\0' && prevNode->wordLabel == true) {
         prevNode->frequency++;
         return true;
-    
-        // Check if all nodes exist, but have to add wordLabel
-      } else if (word[index] == '\0' && prevNode->wordLabel == false) {
+      }
+
+      // Check if all nodes exist, but have to add wordLabel
+      else if (word[index] == '\0' && prevNode->wordLabel == false) {
         prevNode->wordLabel = true;
         return true;
       }
@@ -138,6 +136,11 @@ class TerTrie {
 
 
       return false;
+    }
+
+    // destructor
+    ~TerTrie() {
+
     }
 
 };
