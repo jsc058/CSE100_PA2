@@ -126,7 +126,7 @@ public:
     }
 
     // Add all children of the prefix end to the stack
-    if (curr != nullptr) {
+    if (curr->middle != nullptr) {
       completions.push(*curr);
     }
     if (curr->right != nullptr) {
