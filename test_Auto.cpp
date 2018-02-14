@@ -60,9 +60,6 @@ int main() {
 
   // Test 1
   returned = wordsTest.predictCompletions("a");
-  for (int i = 0; i < returned.size(); i ++) {
-    cout << returned[i] << endl;
-  }
 
   if (returned == correct) {
     cout << "Passed Test 1" << endl;
