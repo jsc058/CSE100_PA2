@@ -8,6 +8,10 @@
 
 using namespace std;
 
+//bool sortbysec(const pair<string,int> &a, const pair<string,int> &b) {
+  //return (a.second > b.second);
+//}
+
 int main() {
 
   vector<string>* v = new vector<string>(10);
@@ -48,10 +52,29 @@ int main() {
   } else {
     cout << "Not found" << endl;
   }
-
-  //return -1;
-
+/*
+  vector<pair<string,int>> tester;
+  tester.push_back(make_pair("a",242));
+  tester.push_back(make_pair("and",264));
+  tester.push_back(make_pair("are",59));
+  tester.push_back(make_pair("all",46));
+  tester.push_back(make_pair("as",43));
+  tester.push_back(make_pair("at",37));
+  tester.push_back(make_pair("an",24));
+  tester.push_back(make_pair("about",15));
+  tester.push_back(make_pair("after",11));
+  tester.push_back(make_pair("again",11));
+  tester.push_back(make_pair("am",11));
+  tester.push_back(make_pair("any",11));
+  
+  //sort(tester.begin(), tester.end()); 
+  sort(tester.begin(), tester.end(), sortbysec);
+  */
   vector<string> returned;
+  /*
+  returned = wordsTest.predictCompletions("a");
+  //cout << tester << endl;
+  //vector<string> returned;
   vector<string> correct;
   correct.push_back("ace");
   correct.push_back("ape");
@@ -60,37 +83,65 @@ int main() {
 
   // Test 1
   returned = wordsTest.predictCompletions("a");
+
   if (returned == correct) {
     cout << "Passed Test 1" << endl;
   } else {
     cout << "Failed Test 1" << endl;
     return -1;
   }
-
+*/
   // Test 2
+<<<<<<< HEAD
   vector<string> correct2(10);
   correct.push_back("ape");
   correct.push_back("apple");
   correct.push_back("applet");
   returned = wordsTest.predictCompletions("ap");
   if (returned == correct) {
+=======
+  vector<string> correct2;
+  //correct2.push_back("ape");
+  correct2.push_back("apple");
+  correct2.push_back("applet");
+  returned = wordsTest.predictCompletions("apple");
+  if (returned == correct2) {
+>>>>>>> beeae84babada42dd443133f9e6feef4c154e1c4
     cout << "Passed Test 2" << endl;
   } else {
     cout << "Failed Test 2" << endl;
     return -1;
   }
 
+<<<<<<< HEAD
   // Test 3
   vector<string> correct3(10);
   returned = wordsTest.predictCompletions("ball");
   if (returned == correct) {
+=======
+  // Test3
+  Autocomplete wordsTest2(AutocompleteUtils::getWords("TestCases/SingleCorpus.txt"));
+  vector<string> correct3;
+  vector<string> returned2;
+  correct3.push_back("wasn't");
+  returned2 = wordsTest2.predictCompletions("wa");
+  if (returned2 == correct3) {
+>>>>>>> beeae84babada42dd443133f9e6feef4c154e1c4
     cout << "Passed Test 3" << endl;
   } else {
     cout << "Failed Test 3" << endl;
     return -1;
   }
+<<<<<<< HEAD
 
   // Test 4
+=======
+vector<string>returned3;
+
+  Autocomplete wordsTest3(AutocompleteUtils::getWords("TestCases/ModerateCorpus.txt"));
+  returned3 = wordsTest3.predictCompletions("a");
+  //Autocomplete wordsTest4(AutocompleteUtils::getWords("TestCases/LargeCorpus.txt"));
+>>>>>>> beeae84babada42dd443133f9e6feef4c154e1c4
   
 
   return -1;

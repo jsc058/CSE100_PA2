@@ -64,13 +64,14 @@ public:
    * Return: the vector of completions
    */
   vector<string> predictCompletions(const string prefix) {
-    vector<string> predictedW(10);
+    vector<string> predictedW;
 
     // Finding the prefix
     TrieNode * to_compare = trie->root; // start at root to traverse down
     int index = 0; // index for the word
     vector<pair<string,unsigned int>> all_words;
     string current;
+    int index2 = 0;
 
     // Loop through the tree to find prefix
     while (to_compare != nullptr) {
@@ -94,19 +95,44 @@ public:
     if (to_compare == nullptr) {
       return predictedW;
     }
-    cout << "Prefix found." << endl;
 
+    char buffer[10000];
+    if (to_compare->wordLabel) {
+      all_words.push_back(make_pair("", to_compare->frequency));
+    }
     // Start DFS from the last letter of the prefix
-    all_words = search(*to_compare, prefix);
+    traversal(to_compare->middle, buffer, 0, &all_words);
 
+    // Sort vector by frequency
+    //sort(all_words.begin(), all_words.end(), sortbysec);
+
+    // Sort vector alphabetically
+    //sort(all_words.begin(), all_words.end());
+    //cout << "Prefix found." << endl;
+    
+    // Start DFS from the last letter of the prefix
+    //all_words = search(*to_compare, prefix);
+    
     // Sort vector alphabetically and then by frequency
-    sort(all_words.begin(), all_words.end());
+    //sort(all_words.begin(), all_words.end());
     sort(all_words.begin(), all_words.end(), sortbysec);
 
     // Input the top 10 words to return
+    /*
     for (int i = 0; i < 10; i++) {
       current = all_words[i].first;
       predictedW.push_back(current);
+    }
+    */
+    current = all_words[index2].first;
+    while (index2 < 10) {
+      current.insert(0, prefix);
+      predictedW.push_back(current);
+      index2++;
+      if (index2 >= all_words.size()) {
+        break;
+      }
+      current = all_words[index2].first;
     }
 
     return predictedW;
@@ -247,6 +273,32 @@ private:
     return possibles;
   }
 */
+
+  void traversal(TrieNode * node, char* buffer, int depth,
+    vector<pair<string, unsigned int>>* possibles) {
+    string myWord;
+
+    if (node != nullptr) {
+      // Traverse left
+      traversal(node->left, buffer, depth, possibles);
+
+      // Store the character of this node
+      buffer[depth] = node->letter;
+      if (node->wordLabel) {
+        buffer[depth+1] = '\0';
+        myWord = buffer;
+        possibles->push_back(make_pair(myWord, node->frequency));
+      }
+
+      // Traverse middle of the tree
+      traversal(node->middle, buffer, depth + 1, possibles);
+
+      // Traverse right of the tree
+      traversal(node->right, buffer, depth, possibles);
+
+    }
+  }
+
 
 };
 
