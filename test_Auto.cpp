@@ -60,6 +60,7 @@ int main() {
 
   // Test 1
   returned = wordsTest.predictCompletions("a");
+  cout << returned << endl;
   if (returned == correct) {
     cout << "Passed Test 1" << endl;
   } else {
@@ -79,6 +80,6 @@ int main() {
     cout << "Failed Test 2" << endl;
     return -1;
   }
-  
+
   return -1;
 }

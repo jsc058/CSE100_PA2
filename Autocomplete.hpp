@@ -150,7 +150,7 @@ public:
       }
 
       // Explore additions to current word
-      if (curr->middle != nullptr) {
+      if (curr->middle != nullptr && curr->left == nullptr && curr->right == nullptr) {
         possibles_sub = search(*curr, currWord);
         possibles.insert(possibles.end(), possibles_sub.begin(), possibles_sub.end());
       }
