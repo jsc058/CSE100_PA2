@@ -8,6 +8,10 @@
 
 using namespace std;
 
+//bool sortbysec(const pair<string,int> &a, const pair<string,int> &b) {
+  //return (a.second > b.second);
+//}
+
 int main() {
 
   vector<string>* v = new vector<string>(10);
@@ -49,8 +53,22 @@ int main() {
     cout << "Not found" << endl;
   }
 
-  //return -1;
-
+  vector<pair<string,int>> tester;
+  tester.push_back(make_pair("all",2));
+  tester.push_back(make_pair("hoe",3));
+  tester.push_back(make_pair("ball",1));
+  tester.push_back(make_pair("allow",1));
+  tester.push_back(make_pair("hall",1));
+  tester.push_back(make_pair("start",6));
+  tester.push_back(make_pair("starter",6));
+  
+  sort(tester.begin(), tester.end()); 
+  sort(tester.begin(), tester.end(), sortbysec);
+  int i = 0;
+  vector<string> returned;
+  returned = wordsTest.predictCompletions("a");
+  //cout << tester << endl;
+/*
   vector<string> returned;
   vector<string> correct;
   correct.push_back("ace");
@@ -79,6 +97,6 @@ int main() {
     cout << "Failed Test 2" << endl;
     return -1;
   }
-  
+  */
   return -1;
 }

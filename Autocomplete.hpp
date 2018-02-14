@@ -22,7 +22,7 @@ using namespace std;
 // Function to sort the vector elements by second element of pair
 bool sortbysec(const pair<string,unsigned int> &a,
               const pair<string,unsigned int> &b) {
-  return (a.second < b.second);
+  return (a.second > b.second);
 }
 
 class Autocomplete
@@ -94,22 +94,22 @@ public:
     if (to_compare == nullptr) {
       return predictedW;
     }
-
+    char buffer[1040];
     // Start DFS from the last letter of the prefix
-    all_words = dfs(*to_compare);
+    traversal(to_compare->middle, buffer, 0, to_compare->letter);
 
     // Sort vector by frequency
-    sort(all_words.begin(), all_words.end(), sortbysec);
+    //sort(all_words.begin(), all_words.end(), sortbysec);
 
     // Sort vector alphabetically
-    sort(all_words.begin(), all_words.end());
-
+    //sort(all_words.begin(), all_words.end());
+/*
     // Input the top 10 words to return
     for (int i = 0; i < 10; i++) {
       current = all_words[i].first;
       predictedW.push_back(current);
     }
-
+*/
     return predictedW;
   }
 
@@ -176,6 +176,32 @@ private:
       }
     }
     return possibles;
+  }
+
+  void traversal(TrieNode * node, char* buffer, int depth, const char letter) {
+   // &vector<pair<string, unsigned int>>) {
+    string myWord;
+
+    if (node != nullptr) {
+      // Traverse left
+      traversal(node->left, buffer, depth, letter);
+
+      // Store the character of this node
+      buffer[depth] = node->letter;
+      if (node->wordLabel) {
+        buffer[depth+1] = '\0';
+        myWord = buffer;
+        myWord.insert(0, &letter);
+        cout << myWord << endl;
+      }
+
+      // Traverse middle of the tree
+      traversal(node->middle, buffer, depth + 1, letter);
+
+      // Traverse right of the tree
+      traversal(node->right, buffer, depth, letter);
+
+    }
   }
 
 
