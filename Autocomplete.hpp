@@ -146,13 +146,13 @@ public:
       // Explore the left and right possible words
       if (curr->left != nullptr || curr->right != nullptr) {
         possibles_sub = search(*curr, currWord);
-        possibles.insert( possibles.end(), possibles_sub.begin(), possibles_sub.end() );
+        possibles.insert(possibles.end(), possibles_sub.begin(), possibles_sub.end());
       }
 
       // Explore additions to current word
       if (curr->middle != nullptr) {
         possibles_sub = search(*curr, currWord);
-        possibles.insert( possibles.end(), possibles_sub.begin(), possibles_sub.end() );
+        possibles.insert(possibles.end(), possibles_sub.begin(), possibles_sub.end());
       }
 
       // Push to results if the node is a word node
