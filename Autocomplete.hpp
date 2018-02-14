@@ -98,11 +98,9 @@ public:
     // Start DFS from the last letter of the prefix
     all_words = search(*to_compare, prefix);
 
-    // Sort vector by frequency
-    sort(all_words.begin(), all_words.end(), sortbysec);
-
-    // TODO Sort vector alphabetically
+    // Sort vector alphabetically and then by frequency
     sort(all_words.begin(), all_words.end());
+    sort(all_words.begin(), all_words.end(), sortbysec);
 
     // Input the top 10 words to return
     for (int i = 0; i < 10; i++) {
