@@ -94,7 +94,6 @@ public:
     if (to_compare == nullptr) {
       return predictedW;
     }
-    cout << "Prefix found." << endl;
 
     // Start DFS from the last letter of the prefix
     all_words = search(*to_compare, prefix);
