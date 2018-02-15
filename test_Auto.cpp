@@ -27,7 +27,7 @@ int main() {
 */
 //v = getWords("TestCases/SingleWords.txt");
   Autocomplete wordsTest(AutocompleteUtils::getWords("TestCases/SingleWords.txt"));
-
+/*
   TerTrie trie;
   bool found;
   trie.insert("apple");
@@ -52,6 +52,7 @@ int main() {
   } else {
     cout << "Not found" << endl;
   }
+*/
 /*
   vector<pair<string,int>> tester;
   tester.push_back(make_pair("a",242));
@@ -92,7 +93,7 @@ int main() {
   }
 */
   // Test 2
-  vector<string> correct2(10);
+  vector<string> correct2;
   correct2.push_back("ape");
   correct2.push_back("apple");
   correct2.push_back("applet");
@@ -120,13 +121,13 @@ vector<string>returned3;
 vector<string>returned4;
 
   Autocomplete wordsTest3(AutocompleteUtils::getWords("TestCases/ModerateCorpus.txt"));
-  returned3 = wordsTest3.predictCompletions("a");
+  returned3 = wordsTest3.predictCompletions("1");
   //Autocomplete wordsTest4(AutocompleteUtils::getWords("TestCases/LargeCorpus.txt"));
 
 
   //returned3 = wordsTest3.predictCompletions("a");
-  Autocomplete wordsTest4(AutocompleteUtils::getWords("TestCases/LargeCorpus.txt"));
-  returned4 = wordsTest4.predictCompletions("sl");
+  //Autocomplete wordsTest4(AutocompleteUtils::getWords("TestCases/LargeCorpus.txt"));
+  //returned4 = wordsTest4.predictCompletions("sl");
   
   return -1;
 }

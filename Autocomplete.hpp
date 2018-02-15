@@ -22,7 +22,15 @@ using namespace std;
 // Function to sort the vector elements by second element of pair
 bool sortbysec(const pair<string,unsigned int> &a,
               const pair<string,unsigned int> &b) {
-  return (a.second > b.second);
+  //return (a.second > b.second);
+  if (a.second > b.second) { 
+    return true;
+  } 
+  if (a.second == b.second) {
+    return a.first < b.first;
+  }
+
+  return false;
 }
 
 class Autocomplete
@@ -129,8 +137,6 @@ public:
     deleteAll(trie->root);
     delete trie;
   }
-
-
 
 private:
 
