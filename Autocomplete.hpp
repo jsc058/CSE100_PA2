@@ -23,9 +23,9 @@ using namespace std;
 bool sortbysec(const pair<string,unsigned int> &a,
               const pair<string,unsigned int> &b) {
   //return (a.second > b.second);
-  if (a.second > b.second) { 
+  if (a.second > b.second) {
     return true;
-  } 
+  }
   if (a.second == b.second) {
     return a.first < b.first;
   }
@@ -79,7 +79,7 @@ public:
     int index = 0; // index for the word
     vector<pair<string,unsigned int>> all_words;
     string current;
-    int index2 = 0;
+    unsigned int index2 = 0;
 
     // Loop through the tree to find prefix
     while (to_compare != nullptr) {
